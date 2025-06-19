@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import { Layout as RALayout, CheckForApplicationUpdate } from "react-admin";
+import { Breadcrumb, SolarLayout } from "@react-admin/ra-navigation";
 
 export const Layout = ({ children }: { children: ReactNode }) => (
-  <RALayout>
+  <SolarLayout>
+    <Breadcrumb />
     {children}
-    <CheckForApplicationUpdate />
-  </RALayout>
+  </SolarLayout>
 );

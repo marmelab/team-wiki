@@ -1,4 +1,4 @@
-# team-wiki-init
+# team-wiki
 
 ## Installation
 
@@ -23,4 +23,3 @@ Build the application in production mode by running:
 ```sh
 yarn build
 ```
-
