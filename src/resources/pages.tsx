@@ -31,9 +31,7 @@ import { PageMarkdownInput } from "../inputs/PageMarkdownInput.tsx";
 export const PageList = () => (
   <List>
     <DataTable>
-      <DataTable.Col source="id" />
       <DataTable.Col source="title" />
-      <DataTable.Col source="content" />
       <DataTable.Col source="category_id">
         <ReferenceField source="category_id" reference="categories" />
       </DataTable.Col>
