@@ -13,7 +13,7 @@ import {
   PageShow,
 } from "./resources/pages.tsx";
 import { appTheme } from "./theme.ts";
-import { CategoriesList } from "./resources/categories.tsx";
+import { CategoriesList, CategoriesShow } from "./resources/categories.tsx";
 
 const i18nProvider = polyglotI18nProvider(() => {
   // Always fallback on english
@@ -28,7 +28,7 @@ export const App = () => (
     authProvider={authProvider}
     i18nProvider={i18nProvider}
   >
-    <Resource name="categories" list={CategoriesList} />
+    <Resource name="categories" list={CategoriesList} show={CategoriesShow} />
     <Resource
       name="pages"
       list={PageList}
