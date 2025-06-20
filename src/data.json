@@ -16,20 +16,74 @@
     }
   ],
   "categories": [
-    {
-      "id": 1,
-      "name": "Web Development",
-      "description": "Articles related to building websites and web applications.",
-      "parent_id": null
-    }
+	  {
+		  "id": 1,
+		  "name": "Technology",
+		  "description": "Root technology topics.",
+		  "parent_id": null
+	  },
+	  {
+		  "id": 2,
+		  "name": "Programming",
+		  "description": "All about programming languages and practices.",
+		  "parent_id": 1
+	  },
+	  {
+		  "id": 3,
+		  "name": "Networking",
+		  "description": "Networking fundamentals and protocols.",
+		  "parent_id": 1
+	  },
+	  {
+		  "id": 4,
+		  "name": "Web",
+		  "description": "Web development tools, frameworks, and languages.",
+		  "parent_id": 2
+	  },
+	  {
+		  "id": 5,
+		  "name": "Mobile",
+		  "description": "Mobile application development platforms and tools.",
+		  "parent_id": 2
+	  }
   ],
   "pages": [
-    {
-      "id": 1,
-      "title": "Introduction to JavaScript",
-      "content": "JavaScript is a versatile programming language primarily used for web development. It allows developers to create interactive and dynamic web pages.",
-      "category_id": 1
-    }
+	  {
+		  "id": 1,
+		  "title": "Understanding Single Page Applications",
+		  "content": "# Understanding Single Page Applications\n\n## Overview\nSingle Page Applications (SPAs) are web applications that load a single HTML page and dynamically update content as the user interacts with the app.\n\n## Key Features\n- Improved user experience by avoiding full page reloads.\n- Heavy use of JavaScript frameworks like React, Angular, or Vue.\n- REST or GraphQL APIs commonly used for backend communication.\n\n## When to Use SPAs\n- When responsiveness and performance are key.\n- For applications like dashboards, mail clients, or social media platforms.\n\n## Best Practices\n1. Use client-side routing responsibly.\n2. Implement proper loading states.\n3. Ensure SEO through pre-rendering or server-side rendering.\n\n## References\n- [MDN on SPAs](https://developer.mozilla.org/en-US/docs/Glossary/SPA)\n- [React Documentation](https://reactjs.org/)\n\n## Summary\n| Aspect           | Description                    |\n|------------------|--------------------------------|\n| Type             | Frontend Architecture          |\n| Common Tools     | React, Angular, Vue            |\n| Drawbacks        | SEO and initial load complexity|\n| Recommended Use  | Interactive web applications   |",
+		  "category_id": 4
+	  },
+	  {
+		  "id": 2,
+		  "title": "Introduction to TCP/IP",
+		  "content": "# Introduction to TCP/IP\n\n## Overview\nTCP/IP (Transmission Control Protocol/Internet Protocol) is the foundational communication protocol suite for the internet and most local networks.\n\n## Layers of TCP/IP\n1. **Application Layer** – Interfaces for applications to access network services.\n2. **Transport Layer** – Manages end-to-end communication (TCP, UDP).\n3. **Internet Layer** – Handles logical addressing and routing (IP).\n4. **Network Access Layer** – Deals with hardware addressing and media access.\n\n## Features\n- Connection-oriented and connectionless protocols\n- IP addressing and subnetting\n- Reliable data transmission\n\n## Use Cases\n- Internet browsing\n- Email services\n- File transfers\n\n## References\n- [RFC 1180](https://tools.ietf.org/html/rfc1180)\n- [Cisco TCP/IP Guide](https://www.cisco.com/)\n\n## Summary\n| Layer              | Protocols       |\n|--------------------|-----------------|\n| Application        | HTTP, FTP, DNS  |\n| Transport          | TCP, UDP        |\n| Internet           | IP, ICMP        |\n| Network Access     | Ethernet, Wi-Fi |",
+		  "category_id": 3
+	  },
+	  {
+		  "id": 3,
+		  "title": "Building Cross-Platform Mobile Apps",
+		  "content": "# Building Cross-Platform Mobile Apps\n\n## Overview\nCross-platform mobile development allows developers to write code once and deploy it on both Android and iOS. This can significantly reduce time and cost.\n\n## Popular Frameworks\n- **React Native** – Uses JavaScript and React.\n- **Flutter** – Uses Dart and provides a rich set of widgets.\n- **Xamarin** – Uses C# and integrates with Visual Studio.\n\n## Advantages\n- Code reuse across platforms\n- Faster development cycles\n- Unified UI/UX strategy\n\n## Challenges\n- Platform-specific bugs\n- Performance issues\n- Dependency on third-party libraries\n\n## Use Cases\n- Startups with limited resources\n- MVP development\n- Internal business apps\n\n## References\n- [React Native Docs](https://reactnative.dev/)\n- [Flutter.dev](https://flutter.dev/)\n\n## Summary\n| Tool        | Language | Notable Feature       |\n|-------------|----------|------------------------|\n| React Native| JS       | Native components      |\n| Flutter     | Dart     | High-performance UI    |\n| Xamarin     | C#       | Microsoft ecosystem    |",
+		  "category_id": 5
+	  },
+	  {
+		  "id": 4,
+		  "title": "Introduction to Functional Programming",
+		  "content": "# Introduction to Functional Programming\n\n## Overview\nFunctional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing state or mutable data.\n\n## Key Concepts\n- Pure functions\n- Immutability\n- Higher-order functions\n- Recursion\n\n## Benefits\n- Easier to reason about code\n- Better modularity\n- Enhanced concurrency\n\n## Common Languages\n- Haskell\n- Scala\n- Elixir\n- F#\n\n## Use Cases\n- Data transformation pipelines\n- Concurrent systems\n\n## References\n- [Functional Programming Principles](https://en.wikipedia.org/wiki/Functional_programming)\n- [Learn You a Haskell](http://learnyouahaskell.com/)\n\n## Summary\n| Concept          | Description                          |\n|------------------|------------------------------------|\n| Pure Functions   | No side effects                    |\n| Immutability     | Data cannot be changed             |\n| Higher-Order     | Functions that take/return functions|\n| Recursion        | Functions calling themselves       |",
+		  "category_id": 2
+	  },
+	  {
+		  "id": 5,
+		  "title": "Overview of Emerging Technologies",
+		  "content": "# Overview of Emerging Technologies\n\n## Introduction\nEmerging technologies are innovations that are currently developing or will be developed over the next few years, impacting industries and society.\n\n## Key Areas\n- Artificial Intelligence (AI)\n- Quantum Computing\n- Blockchain\n- Internet of Things (IoT)\n\n## Potential Impacts\n- Automation of tasks\n- Enhanced data processing\n- New business models\n\n## Challenges\n- Ethical concerns\n- Security risks\n- Regulatory hurdles\n\n## References\n- [Gartner Hype Cycle](https://www.gartner.com/en/research/methodologies/gartner-hype-cycle)\n- [IEEE Emerging Tech](https://technology.ieee.org/)\n\n## Summary\n| Technology         | Description                         |\n|--------------------|-----------------------------------|\n| AI                 | Machines simulating human tasks   |\n| Quantum Computing   | Computing using quantum bits       |\n| Blockchain         | Decentralized digital ledger      |\n| IoT                | Network of connected devices      |",
+		  "category_id": 1
+	  },
+	  {
+		  "id": 6,
+		  "title": "Modern Frontend Development",
+		  "content": "# Modern Frontend Development\n\n## Introduction\nFrontend development focuses on the part of a website or web application that users interact with directly.\n\n### Importance of User Experience (UX)\nGood frontend design enhances user engagement and satisfaction.\n\n## Core Technologies\n\n### HTML\nHTML structures the content of web pages.\n\n### CSS\nCSS styles and visually formats the content.\n\n### JavaScript\nJavaScript adds interactivity and dynamic behavior.\n\n## Frameworks and Libraries\n\n### React\nA JavaScript library for building user interfaces using components.\n\n### Vue.js\nA progressive framework for building UI with ease of integration.\n\n### Angular\nA full-featured framework maintained by Google.\n\n## Best Practices\n\n### Responsive Design\nEnsures the website works on all devices and screen sizes.\n\n### Performance Optimization\nMinimize load times by optimizing assets and code.\n\n### Accessibility\nMake websites usable for people with disabilities.\n\n## References\n- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer)\n- [React Official](https://reactjs.org/)\n\n## Summary\n| Technology | Role              |\n|------------|-------------------|\n| HTML       | Structure         |\n| CSS        | Styling           |\n| JavaScript | Interactivity     |",
+		  "category_id": 4
+	  }
   ],
   "pages_history": [
 	  {
@@ -38,14 +92,14 @@
 		  "recordId": 1,
 		  "data": {
 			  "id": 1,
-			  "title": "Introduction to JavaScript",
-			  "content": "JavaScript is a versatile programming language primarily used for web development. It allows developers to create interactive and dynamic web pages.",
-			  "category_id": 1
+			  "title": "Understanding Single Page Applications",
+			  "content": "# Understanding Single Page Applications\n\n## Overview\nSingle Page Applications (SPAs) are web applications that load a single HTML page and dynamically update content as the user interacts with the app.\n\n## Key Features\n- Improved user experience by avoiding full page reloads.\n- Heavy use of JavaScript frameworks like React, Angular, or Vue.\n- REST or GraphQL APIs commonly used for backend communication.\n\n## When to Use SPAs\n- When responsiveness and performance are key.\n- For applications like dashboards, mail clients, or social media platforms.\n\n## Best Practices\n1. Use client-side routing responsibly.\n2. Implement proper loading states.\n3. Ensure SEO through pre-rendering or server-side rendering.\n\n## References\n- [MDN on SPAs](https://developer.mozilla.org/en-US/docs/Glossary/SPA)\n- [React Documentation](https://reactjs.org/)\n\n## Summary\n| Aspect           | Description                    |\n|------------------|--------------------------------|\n| Type             | Frontend Architecture          |\n| Common Tools     | React, Angular, Vue            |\n| Drawbacks        | SEO and initial load complexity|\n| Recommended Use  | Interactive web applications   |",
+			  "category_id": 4
 		  },
-		  "authorId": 1,
-		  "date": "2023-10-02T12:00:00Z",
-		  "message": "Corrected the spelling of 'JavaScript' in the title and content.",
-		  "description": "Someone mistyped 'JavaScript' as 'JawaScript'."
+		  "authorId": 2,
+		  "date": "2025-06-18T14:30:00Z",
+		  "message": "Finalized SPA article with examples and references",
+		  "description": "Expanded content and added summary table"
 	  },
 	  {
 		  "id": 1,
@@ -53,13 +107,163 @@
 		  "recordId": 1,
 		  "data": {
 			  "id": 1,
-			  "title": "Introduction to JawaScript",
-			  "content": "JawaScript is a versatile programming language primarily used for web development. It allows developers to create interactive and dynamic web pages.",
-			  "category_id": 1
+			  "title": "Understanding SPAs (Draft)",
+			  "content": "# Understanding SPAs (Draft)\n\n## Intro\nSPAs or Single Page Applications are sites that operate within a single web document.\n\n## Pros\n- Fast transitions\n- Good for apps\n\n## Cons\n- SEO issues\n- Browser history handling\n",
+			  "category_id": 4
 		  },
 		  "authorId": 1,
-		  "date": "2023-10-01T12:00:00Z",
-		  "message": "Initial revision",
+		  "date": "2025-06-17T10:00:00Z",
+		  "message": "Initial draft of SPA article",
+		  "description": null
+	  },
+	  {
+		  "id": 4,
+		  "resource": "pages",
+		  "recordId": 2,
+		  "data": {
+			  "id": 2,
+			  "title": "Introduction to TCP/IP",
+			  "content": "# Introduction to TCP/IP\n\n## Overview\nTCP/IP (Transmission Control Protocol/Internet Protocol) is the foundational communication protocol suite for the internet and most local networks.\n\n## Layers of TCP/IP\n1. **Application Layer** – Interfaces for applications to access network services.\n2. **Transport Layer** – Manages end-to-end communication (TCP, UDP).\n3. **Internet Layer** – Handles logical addressing and routing (IP).\n4. **Network Access Layer** – Deals with hardware addressing and media access.\n\n## Features\n- Connection-oriented and connectionless protocols\n- IP addressing and subnetting\n- Reliable data transmission\n\n## Use Cases\n- Internet browsing\n- Email services\n- File transfers\n\n## References\n- [RFC 1180](https://tools.ietf.org/html/rfc1180)\n- [Cisco TCP/IP Guide](https://www.cisco.com/)\n\n## Summary\n| Layer              | Protocols       |\n|--------------------|-----------------|\n| Application        | HTTP, FTP, DNS  |\n| Transport          | TCP, UDP        |\n| Internet           | IP, ICMP        |\n| Network Access     | Ethernet, Wi-Fi |",
+			  "category_id": 3
+		  },
+		  "authorId": 4,
+		  "date": "2025-06-20T11:00:00Z",
+		  "message": "Added table and clarified layers section",
+		  "description": "Expanded technical detail for better readability"
+	  },
+	  {
+		  "id": 3,
+		  "resource": "pages",
+		  "recordId": 2,
+		  "data": {
+			  "id": 2,
+			  "title": "TCP/IP Overview",
+			  "content": "# TCP/IP Overview\n\nTCP/IP is a suite of protocols used for communication across interconnected networks. It breaks down communication into layers for scalability and flexibility.\n\nIncludes protocols like:\n- HTTP\n- IP\n- TCP\n\nUsed in nearly all digital communications today.",
+			  "category_id": 3
+		  },
+		  "authorId": 2,
+		  "date": "2025-06-18T10:00:00Z",
+		  "message": "Initial version of TCP/IP article",
+		  "description": null
+	  },
+	  {
+		  "id": 6,
+		  "resource": "pages",
+		  "recordId": 3,
+		  "data": {
+			  "id": 3,
+			  "title": "Building Cross-Platform Mobile Apps",
+			  "content": "# Building Cross-Platform Mobile Apps\n\n## Overview\nCross-platform mobile development allows developers to write code once and deploy it on both Android and iOS. This can significantly reduce time and cost.\n\n## Popular Frameworks\n- **React Native** – Uses JavaScript and React.\n- **Flutter** – Uses Dart and provides a rich set of widgets.\n- **Xamarin** – Uses C# and integrates with Visual Studio.\n\n## Advantages\n- Code reuse across platforms\n- Faster development cycles\n- Unified UI/UX strategy\n\n## Challenges\n- Platform-specific bugs\n- Performance issues\n- Dependency on third-party libraries\n\n## Use Cases\n- Startups with limited resources\n- MVP development\n- Internal business apps\n\n## References\n- [React Native Docs](https://reactnative.dev/)\n- [Flutter.dev](https://flutter.dev/)\n\n## Summary\n| Tool        | Language | Notable Feature       |\n|-------------|----------|------------------------|\n| React Native| JS       | Native components      |\n| Flutter     | Dart     | High-performance UI    |\n| Xamarin     | C#       | Microsoft ecosystem    |",
+			  "category_id": 5
+		  },
+		  "authorId": 3,
+		  "date": "2025-06-20T13:00:00Z",
+		  "message": "Refined advantages and added summary table",
+		  "description": "Improved clarity and added framework comparison"
+	  },
+	  {
+		  "id": 5,
+		  "resource": "pages",
+		  "recordId": 3,
+		  "data": {
+			  "id": 3,
+			  "title": "Cross-Platform Mobile Development",
+			  "content": "# Cross-Platform Mobile Development\n\nWrite once, run anywhere — that's the idea behind using frameworks like React Native, Flutter, and Xamarin.\n\nThey each offer different trade-offs in terms of speed, UI fidelity, and native capabilities.",
+			  "category_id": 5
+		  },
+		  "authorId": 1,
+		  "date": "2025-06-19T09:45:00Z",
+		  "message": "Initial draft for mobile dev article",
+		  "description": null
+	  },
+	  {
+		  "id": 8,
+		  "resource": "pages",
+		  "recordId": 4,
+		  "data": {
+			  "id": 4,
+			  "title": "Introduction to Functional Programming",
+			  "content": "# Introduction to Functional Programming\n\n## Overview\nFunctional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing state or mutable data.\n\n## Key Concepts\n- Pure functions\n- Immutability\n- Higher-order functions\n- Recursion\n\n## Benefits\n- Easier to reason about code\n- Better modularity\n- Enhanced concurrency\n\n## Common Languages\n- Haskell\n- Scala\n- Elixir\n- F#\n\n## Use Cases\n- Data transformation pipelines\n- Concurrent systems\n\n## References\n- [Functional Programming Principles](https://en.wikipedia.org/wiki/Functional_programming)\n- [Learn You a Haskell](http://learnyouahaskell.com/)\n\n## Summary\n| Concept          | Description                          |\n|------------------|------------------------------------|\n| Pure Functions   | No side effects                    |\n| Immutability     | Data cannot be changed             |\n| Higher-Order     | Functions that take/return functions|\n| Recursion        | Functions calling themselves       |",
+			  "category_id": 2
+		  },
+		  "authorId": 2,
+		  "date": "2025-06-20T15:00:00Z",
+		  "message": "Expanded benefits and added summary table",
+		  "description": "Improved clarity and formatting"
+	  },
+	  {
+		  "id": 7,
+		  "resource": "pages",
+		  "recordId": 4,
+		  "data": {
+			  "id": 4,
+			  "title": "Functional Programming Basics",
+			  "content": "# Functional Programming Basics\n\nFunctional programming emphasizes pure functions and immutability, which helps avoid bugs and improve concurrency.\n\nIt’s different from imperative programming and is gaining popularity in many modern languages.",
+			  "category_id": 2
+		  },
+		  "authorId": 1,
+		  "date": "2025-06-19T11:20:00Z",
+		  "message": "Initial draft of functional programming page",
+		  "description": null
+	  },
+	  {
+		  "id": 10,
+		  "resource": "pages",
+		  "recordId": 5,
+		  "data": {
+			  "id": 5,
+			  "title": "Overview of Emerging Technologies",
+			  "content": "# Overview of Emerging Technologies\n\n## Introduction\nEmerging technologies are innovations that are currently developing or will be developed over the next few years, impacting industries and society.\n\n## Key Areas\n- Artificial Intelligence (AI)\n- Quantum Computing\n- Blockchain\n- Internet of Things (IoT)\n\n## Potential Impacts\n- Automation of tasks\n- Enhanced data processing\n- New business models\n\n## Challenges\n- Ethical concerns\n- Security risks\n- Regulatory hurdles\n\n## References\n- [Gartner Hype Cycle](https://www.gartner.com/en/research/methodologies/gartner-hype-cycle)\n- [IEEE Emerging Tech](https://technology.ieee.org/)\n\n## Summary\n| Technology         | Description                         |\n|--------------------|-----------------------------------|\n| AI                 | Machines simulating human tasks   |\n| Quantum Computing   | Computing using quantum bits       |\n| Blockchain         | Decentralized digital ledger      |\n| IoT                | Network of connected devices      |",
+			  "category_id": 1
+		  },
+		  "authorId": 5,
+		  "date": "2025-06-20T16:00:00Z",
+		  "message": "Added summary table and references",
+		  "description": "Enhanced article clarity and structure"
+	  },
+	  {
+		  "id": 9,
+		  "resource": "pages",
+		  "recordId": 5,
+		  "data": {
+			  "id": 5,
+			  "title": "Emerging Technologies",
+			  "content": "# Emerging Technologies\n\nInnovations that are expected to influence the future across many sectors, including computing, healthcare, and manufacturing.",
+			  "category_id": 1
+		  },
+		  "authorId": 3,
+		  "date": "2025-06-19T14:00:00Z",
+		  "message": "Initial brief overview of emerging tech",
+		  "description": null
+	  },
+	  {
+		  "id": 12,
+		  "resource": "pages",
+		  "recordId": 6,
+		  "data": {
+			  "id": 6,
+			  "title": "Modern Frontend Development",
+			  "content": "# Modern Frontend Development\n\n## Introduction\nFrontend development focuses on the part of a website or web application that users interact with directly.\n\n### Importance of User Experience (UX)\nGood frontend design enhances user engagement and satisfaction.\n\n## Core Technologies\n\n### HTML\nHTML structures the content of web pages.\n\n### CSS\nCSS styles and visually formats the content.\n\n### JavaScript\nJavaScript adds interactivity and dynamic behavior.\n\n## Frameworks and Libraries\n\n### React\nA JavaScript library for building user interfaces using components.\n\n### Vue.js\nA progressive framework for building UI with ease of integration.\n\n### Angular\nA full-featured framework maintained by Google.\n\n## Best Practices\n\n### Responsive Design\nEnsures the website works on all devices and screen sizes.\n\n### Performance Optimization\nMinimize load times by optimizing assets and code.\n\n### Accessibility\nMake websites usable for people with disabilities.\n\n## References\n- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer)\n- [React Official](https://reactjs.org/)\n\n## Summary\n| Technology | Role              |\n|------------|-------------------|\n| HTML       | Structure         |\n| CSS        | Styling           |\n| JavaScript | Interactivity     |",
+			  "category_id": 4
+		  },
+		  "authorId": 6,
+		  "date": "2025-06-20T17:00:00Z",
+		  "message": "Completed detailed frontend development overview with headings and table",
+		  "description": "Structured content with clear sections and best practices"
+	  },
+	  {
+		  "id": 11,
+		  "resource": "pages",
+		  "recordId": 6,
+		  "data": {
+			  "id": 6,
+			  "title": "Frontend Development Overview",
+			  "content": "# Frontend Development Overview\n\nFrontend development deals with building the visual and interactive parts of web applications.\n\nIncludes HTML, CSS, and JavaScript to create dynamic, responsive sites.",
+			  "category_id": 4
+		  },
+		  "authorId": 4,
+		  "date": "2025-06-19T15:30:00Z",
+		  "message": "Initial frontend dev page draft",
 		  "description": null
 	  }
   ],
