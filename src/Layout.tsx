@@ -1,34 +1,26 @@
 import type { ReactNode } from "react";
 import {
-  Breadcrumb,
-  SolarAppBar,
-  SolarLayout,
-  SolarMenu,
-  SolarMenuUserItem,
-} from "@react-admin/ra-navigation";
+  Layout as RALayout,
+  AppBar as RAAppBar,
+  TitlePortal,
+} from "react-admin";
+import { Box } from "@mui/material";
+import { AppLocationContext, Breadcrumb } from "@react-admin/ra-navigation";
 import { Search } from "@react-admin/ra-search";
 
-import { SearchMenuItem } from "./Search.tsx";
-
-const WikiAppBar = () => (
-  <SolarAppBar>
+const AppBar = () => (
+  <RAAppBar>
+    <TitlePortal />
+    <Box sx={{ flex: "1" }} />
     <Search />
-  </SolarAppBar>
+  </RAAppBar>
 );
-
-const BottomToolbar = () => (
-  <>
-    <SearchMenuItem />
-    <SolarMenu.LoadingIndicatorItem />
-    <SolarMenuUserItem />
-  </>
-);
-
-const Menu = () => <SolarMenu bottomToolbar={<BottomToolbar />} />;
 
 export const Layout = ({ children }: { children: ReactNode }) => (
-  <SolarLayout appBar={WikiAppBar} menu={Menu}>
-    <Breadcrumb />
-    {children}
-  </SolarLayout>
+  <AppLocationContext>
+    <RALayout appBar={AppBar}>
+      <Breadcrumb />
+      {children}
+    </RALayout>
+  </AppLocationContext>
 );
