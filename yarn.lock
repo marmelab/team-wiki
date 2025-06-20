@@ -1584,6 +1584,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/github-slugger@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@types/github-slugger@npm:2.0.0"
+  dependencies:
+    github-slugger: "npm:*"
+  checksum: 10c0/4067838a68a1327990a08778986178168983dd82550b0db475b6377789020f97bdb01907012ba57754becd5794a4d7320960d1eae665a8a6682efb4a5e7c292a
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.15":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -3458,7 +3467,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"github-slugger@npm:^2.0.0":
+"github-slugger@npm:*, github-slugger@npm:^2.0.0":
   version: 2.0.0
   resolution: "github-slugger@npm:2.0.0"
   checksum: 10c0/21b912b6b1e48f1e5a50b2292b48df0ff6abeeb0691b161b3d93d84f4ae6b1acd6ae23702e914af7ea5d441c096453cf0f621b72d57893946618d21dd1a1c486
@@ -6304,6 +6313,7 @@ __metadata:
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/react": "npm:^16.0.0"
     "@toast-ui/editor": "npm:^3.2.2"
+    "@types/github-slugger": "npm:^2.0.0"
     "@types/node": "npm:^20.10.7"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
@@ -6314,6 +6324,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.2.5"
     eslint-plugin-react: "npm:^7.37.4"
     eslint-plugin-react-hooks: "npm:^5.2.0"
+    github-slugger: "npm:^2.0.0"
     globals: "npm:^16.0.0"
     jsdom: "npm:^24.1.1"
     lucide-react: "npm:^0.518.0"
