@@ -10,8 +10,11 @@ import {
   TextField,
   TextInput,
   TopToolbar,
+  useGetOne,
 } from "react-admin";
 import { CreateNode, EditNode, TreeWithDetails } from "@react-admin/ra-tree";
+import { useParams } from "react-router";
+import { useDefineAppLocation } from "@react-admin/ra-navigation";
 
 export function CategoriesList() {
   return (
@@ -62,38 +65,50 @@ const CategoriesShowToolbar = () => (
   </TopToolbar>
 );
 
-export const CategoriesShow = () => (
-  <Show actions={<CategoriesShowToolbar />} title="Categories">
-    <SimpleShowLayout>
-      <TextField source="name" />
+export const CategoriesShow = () => {
+  const { id: categoryId } = useParams<{ id: string }>();
+  const { data: category } = useGetOne("categories", { id: categoryId });
+  const { data: parent } = useGetOne("categories", { id: category?.parent_id });
+  useDefineAppLocation(
+    (parent?.parent_id ? "nested." : "") +
+      (parent ? "parent." : "") +
+      "category",
+    { parent, category },
+  );
 
-      <ReferenceManyField
-        reference="categories"
-        target="parent_id"
-        label="Subcategories"
-        sort={{
-          field: "name",
-          order: "ASC",
-        }}
-      >
-        <DataTable>
-          <DataTable.Col source="name" />
-        </DataTable>
-      </ReferenceManyField>
+  return (
+    <Show actions={<CategoriesShowToolbar />} title="Categories">
+      <SimpleShowLayout>
+        <TextField source="name" />
 
-      <ReferenceManyField
-        reference="pages"
-        target="category_id"
-        label="Pages"
-        sort={{
-          field: "title",
-          order: "ASC",
-        }}
-      >
-        <DataTable>
-          <DataTable.Col source="title" />
-        </DataTable>
-      </ReferenceManyField>
-    </SimpleShowLayout>
-  </Show>
-);
+        <ReferenceManyField
+          reference="categories"
+          target="parent_id"
+          label="Subcategories"
+          sort={{
+            field: "name",
+            order: "ASC",
+          }}
+        >
+          <DataTable>
+            <DataTable.Col source="name" />
+          </DataTable>
+        </ReferenceManyField>
+
+        <ReferenceManyField
+          reference="pages"
+          target="category_id"
+          label="Pages"
+          sort={{
+            field: "title",
+            order: "ASC",
+          }}
+        >
+          <DataTable>
+            <DataTable.Col source="title" />
+          </DataTable>
+        </ReferenceManyField>
+      </SimpleShowLayout>
+    </Show>
+  );
+};

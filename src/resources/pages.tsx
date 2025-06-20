@@ -14,6 +14,7 @@ import {
   FunctionField,
   Create,
   required,
+  useGetOne,
 } from "react-admin";
 import { MarkdownField } from "@react-admin/ra-markdown";
 import {
@@ -25,12 +26,13 @@ import { Box, Link, Stack, Typography } from "@mui/material";
 import { fromMarkdown } from "react-markdown-toc";
 import { TOC } from "react-markdown-toc/client";
 import { ReferenceNodeInput } from "@react-admin/ra-tree";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { HeadingMdNode } from "@toast-ui/editor";
 import { slug } from "github-slugger";
 
 import { PageMarkdownInput } from "../inputs/PageMarkdownInput.tsx";
 import { nodeToString } from "../utils.ts";
+import { useDefineAppLocation } from "@react-admin/ra-navigation";
 
 export const PageList = () => (
   <List>
@@ -113,6 +115,14 @@ export const PageSidebar = () => {
 
 export const PageShow = () => {
   const baseUrl = useBaseUrl();
+
+  const { id: pageId } = useParams<{ id: string }>();
+  const { data: page } = useGetOne("pages", { id: pageId });
+  const { data: category } = useGetOne("categories", { id: page?.category_id });
+  useDefineAppLocation(
+    (category.parent_id ? "nested." : "") + "category.page",
+    { page, category },
+  );
 
   return (
     <Show aside={<PageSidebar />} actions={<PageShowToolbar />} title={false}>
