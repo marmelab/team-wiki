@@ -35,7 +35,12 @@ import { nodeToString } from "../utils.ts";
 import { useDefineAppLocation } from "@react-admin/ra-navigation";
 
 export const PageList = () => (
-  <List>
+  <List
+    sort={{
+      field: "title",
+      order: "ASC",
+    }}
+  >
     <DataTable>
       <DataTable.Col source="title" />
       <DataTable.Col source="category_id">
