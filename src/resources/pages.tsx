@@ -7,7 +7,6 @@ import {
   ReferenceField,
   Show,
   TextField,
-  Labeled,
   TopToolbar,
   EditButton,
   ShowButton,
@@ -87,6 +86,7 @@ export const PageSidebar = () => {
         return (
           <Stack
             sx={{
+              width: "20em",
               position: "sticky",
               top: "4em",
 
@@ -135,15 +135,18 @@ export const PageShow = () => {
         <TextField
           source="title"
           component={({ children }: { children: React.ReactNode }) => (
-            <Typography variant="h2" gutterBottom>
+            <Typography
+              variant="h2"
+              gutterBottom
+              sx={{
+                fontSize: "2.5em",
+                textAlign: "center",
+              }}
+            >
               {children}
             </Typography>
           )}
         />
-
-        <Labeled label="Category">
-          <ReferenceField source="category_id" reference="categories" />
-        </Labeled>
 
         <Box>
           <MarkdownField
