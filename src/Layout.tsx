@@ -5,8 +5,14 @@ import {
   TitlePortal,
 } from "react-admin";
 import { Box } from "@mui/material";
-import { AppLocationContext, Breadcrumb } from "@react-admin/ra-navigation";
+import {
+  AppLocationContext,
+  Breadcrumb,
+  MultiLevelMenu,
+} from "@react-admin/ra-navigation";
 import { Search } from "@react-admin/ra-search";
+import { ListTreeIcon, StickyNoteIcon } from "lucide-react";
+import { TreeRecord, useGetTree } from "@react-admin/ra-tree";
 
 const AppBar = () => (
   <RAAppBar>
@@ -16,13 +22,15 @@ const AppBar = () => (
   </RAAppBar>
 );
 
-export const CategorizedPageBreadcrumbItem = () => (
+const CategorizedPageBreadcrumbItem = () => (
   <Breadcrumb.Item
     name="category"
     label={({ category }) => {
       return (category as any)?.name ?? "";
     }}
-    to={({ category }) => `/categories/${(category as any).id}/show`}
+    to={({ category }) =>
+      category ? `/categories/${(category as any).id}/show` : undefined
+    }
   >
     <Breadcrumb.Item
       name="page"
@@ -33,7 +41,7 @@ export const CategorizedPageBreadcrumbItem = () => (
   </Breadcrumb.Item>
 );
 
-export const CategorizedCategoryBreadcrumbItem = () => (
+const CategorizedCategoryBreadcrumbItem = () => (
   <Breadcrumb.Item
     name="parent"
     label={({ parent }) => {
@@ -52,9 +60,65 @@ export const CategorizedCategoryBreadcrumbItem = () => (
   </Breadcrumb.Item>
 );
 
+const RecursiveMenuItem = ({
+  category,
+  tree,
+}: {
+  category: TreeRecord;
+  tree: TreeRecord[];
+}) => {
+  return (
+    <MultiLevelMenu.Item
+      name={`categories.${category.id}`}
+      label={category.name}
+      to={`/categories/${category.id}/show`}
+    >
+      {category.children?.map((childIdentifier) => {
+        const child = tree.find((category) => childIdentifier == category.id);
+
+        return child ? (
+          <RecursiveMenuItem
+            key={childIdentifier}
+            category={child}
+            tree={tree}
+          />
+        ) : null;
+      })}
+    </MultiLevelMenu.Item>
+  );
+};
+
+const Menu = () => {
+  const tree = useGetTree("categories");
+
+  return (
+    <MultiLevelMenu>
+      <MultiLevelMenu.Item
+        name="categories"
+        icon={<ListTreeIcon />}
+        label="Categories"
+        to="/categories"
+      />
+      <MultiLevelMenu.Item
+        name="pages"
+        icon={<StickyNoteIcon />}
+        label="All Pages"
+        to="/pages"
+      />
+
+      {tree.data?.map(
+        (category) =>
+          !category.parent_id && (
+            <RecursiveMenuItem category={category} tree={tree.data} />
+          ),
+      )}
+    </MultiLevelMenu>
+  );
+};
+
 export const Layout = ({ children }: { children: ReactNode }) => (
   <AppLocationContext>
-    <RALayout appBar={AppBar}>
+    <RALayout appBar={AppBar} menu={Menu}>
       <Breadcrumb>
         <Breadcrumb.ResourceItems />
 

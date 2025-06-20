@@ -28,7 +28,7 @@ export function CategoriesList() {
 }
 
 const CategoriesCreate = () => (
-  <CreateNode>
+  <CreateNode redirect={"edit"}>
     <SimpleForm>
       <TextInput source="name" validate={[required()]} />
     </SimpleForm>
