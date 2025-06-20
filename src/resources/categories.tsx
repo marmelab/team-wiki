@@ -68,6 +68,20 @@ export const CategoriesShow = () => (
       <TextField source="name" />
 
       <ReferenceManyField
+        reference="categories"
+        target="parent_id"
+        label="Subcategories"
+        sort={{
+          field: "name",
+          order: "ASC",
+        }}
+      >
+        <DataTable>
+          <DataTable.Col source="name" />
+        </DataTable>
+      </ReferenceManyField>
+
+      <ReferenceManyField
         reference="pages"
         target="category_id"
         label="Pages"
