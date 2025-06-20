@@ -33,7 +33,7 @@ const CategoriesCreate = () => (
 );
 
 const CategoriesEdit = () => (
-  <EditNode>
+  <EditNode title="Categories">
     <SimpleForm>
       <TextInput source="name" validate={[required()]} />
 
@@ -63,7 +63,7 @@ const CategoriesShowToolbar = () => (
 );
 
 export const CategoriesShow = () => (
-  <Show actions={<CategoriesShowToolbar />}>
+  <Show actions={<CategoriesShowToolbar />} title="Categories">
     <SimpleShowLayout>
       <TextField source="name" />
 

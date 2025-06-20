@@ -79,7 +79,7 @@ export const PageSidebar = () => {
 
 export const PageShow = () => {
   return (
-    <Show aside={<PageSidebar />} actions={<PageShowToolbar />}>
+    <Show aside={<PageSidebar />} actions={<PageShowToolbar />} title={false}>
       <Box padding={2}>
         <TextField
           source="title"
@@ -110,7 +110,7 @@ export const PageEditToolbar = () => (
 );
 
 export const PageEdit = () => (
-  <Edit actions={<PageEditToolbar />}>
+  <Edit actions={<PageEditToolbar />} title={"Edit Page"}>
     <SimpleFormWithRevision>
       <TextInput source="id" readOnly />
       <TextInput source="title" validate={required()} />
