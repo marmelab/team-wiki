@@ -1,5 +1,8 @@
 import {
+  DataTable,
   EditButton,
+  Labeled,
+  ReferenceManyField,
   required,
   Show,
   SimpleForm,
@@ -33,6 +36,22 @@ const CategoriesEdit = () => (
   <EditNode>
     <SimpleForm>
       <TextInput source="name" validate={[required()]} />
+
+      <Labeled label="Pages">
+        <ReferenceManyField
+          reference="pages"
+          target="category_id"
+          label="Pages"
+          sort={{
+            field: "title",
+            order: "ASC",
+          }}
+        >
+          <DataTable>
+            <DataTable.Col source="title" />
+          </DataTable>
+        </ReferenceManyField>
+      </Labeled>
     </SimpleForm>
   </EditNode>
 );
@@ -47,6 +66,20 @@ export const CategoriesShow = () => (
   <Show actions={<CategoriesShowToolbar />}>
     <SimpleShowLayout>
       <TextField source="name" />
+
+      <ReferenceManyField
+        reference="pages"
+        target="category_id"
+        label="Pages"
+        sort={{
+          field: "title",
+          order: "ASC",
+        }}
+      >
+        <DataTable>
+          <DataTable.Col source="title" />
+        </DataTable>
+      </ReferenceManyField>
     </SimpleShowLayout>
   </Show>
 );
