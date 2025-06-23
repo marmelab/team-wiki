@@ -14,6 +14,7 @@ import {
   Create,
   required,
   useGetOne,
+  useRecordContext,
 } from "react-admin";
 import { MarkdownField } from "@react-admin/ra-markdown";
 import {
@@ -21,17 +22,18 @@ import {
   RevisionsButton,
   SimpleFormWithRevision,
 } from "@react-admin/ra-history";
-import { Box, Link, Stack, Typography } from "@mui/material";
+import { Box, Button, Link, Stack, Typography } from "@mui/material";
 import { fromMarkdown } from "react-markdown-toc";
 import { TOC } from "react-markdown-toc/client";
 import { ReferenceNodeInput } from "@react-admin/ra-tree";
-import { useLocation, useParams } from "react-router";
+import { Link as NativeLink, useLocation, useParams } from "react-router";
 import { HeadingMdNode } from "@toast-ui/editor";
 import { slug } from "github-slugger";
 
 import { PageMarkdownInput } from "../inputs/PageMarkdownInput.tsx";
 import { nodeToString } from "../utils.ts";
 import { useDefineAppLocation } from "@react-admin/ra-navigation";
+import { MessagesSquare } from "lucide-react";
 
 export const PageList = () => (
   <List
@@ -56,12 +58,25 @@ export const PageDiff = () => (
   </Stack>
 );
 
-export const PageShowToolbar = () => (
-  <TopToolbar>
-    <RevisionsButton diff={<PageDiff />} />
-    <EditButton />
-  </TopToolbar>
-);
+export const PageShowToolbar = () => {
+  const record = useRecordContext();
+
+  return (
+    <TopToolbar>
+      <Button
+        component={NativeLink}
+        to={`/pages/${record?.id}/talk`}
+        size="small"
+        startIcon={<MessagesSquare size="1em" />}
+        sx={{ lineHeight: 1.5 }}
+      >
+        Discussions
+      </Button>
+      <RevisionsButton diff={<PageDiff />} />
+      <EditButton />
+    </TopToolbar>
+  );
+};
 
 const useBaseUrl = () => {
   const { pathname } = useLocation();

@@ -15,6 +15,8 @@ import {
 import { appTheme } from "./theme.ts";
 import { CategoriesList, CategoriesShow } from "./resources/categories.tsx";
 import { ListTreeIcon, StickyNoteIcon } from "lucide-react";
+import { PagesMessagesList } from "./resources/pages-messages.tsx";
+import { Route } from "react-router";
 
 const i18nProvider = polyglotI18nProvider(() => {
   // Always fallback on english
@@ -42,6 +44,8 @@ export const App = () => (
       edit={PageEdit}
       show={PageShow}
       create={PageCreate}
-    />
+    >
+      <Route path=":id/talk" element={<PagesMessagesList />} />
+    </Resource>
   </Admin>
 );

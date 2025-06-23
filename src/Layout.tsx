@@ -37,7 +37,10 @@ const CategorizedPageBreadcrumbItem = () => (
       label={({ page }) => {
         return (page as any)?.title ?? "";
       }}
-    />
+      to={({ page }) => (page ? `/pages/${(page as any).id}/show` : undefined)}
+    >
+      <Breadcrumb.Item name={"discussions"} label={"Discussions"} />
+    </Breadcrumb.Item>
   </Breadcrumb.Item>
 );
 
