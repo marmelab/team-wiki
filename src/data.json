@@ -49,6 +49,12 @@
   ],
   "pages": [
 	  {
+		  "id": 0,
+		  "title": "Team Wiki",
+		  "content": "This is the homepage of your **Team Wiki**!",
+		  "category_id": null
+	  },
+	  {
 		  "id": 1,
 		  "title": "Understanding Single Page Applications",
 		  "content": "## Overview\nSingle Page Applications (SPAs) are web applications that load a single HTML page and dynamically update content as the user interacts with the app.\n\n## Key Features\n- Improved user experience by avoiding full page reloads.\n- Heavy use of JavaScript frameworks like React, Angular, or Vue.\n- REST or GraphQL APIs commonly used for backend communication.\n\n## When to Use SPAs\n- When responsiveness and performance are key.\n- For applications like dashboards, mail clients, or social media platforms.\n\n## Best Practices\n1. Use client-side routing responsibly.\n2. Implement proper loading states.\n3. Ensure SEO through pre-rendering or server-side rendering.\n\n## References\n- [MDN on SPAs](https://developer.mozilla.org/en-US/docs/Glossary/SPA)\n- [React Documentation](https://reactjs.org/)\n\n## Summary\n| Aspect           | Description                    |\n|------------------|--------------------------------|\n| Type             | Frontend Architecture          |\n| Common Tools     | React, Angular, Vue            |\n| Drawbacks        | SEO and initial load complexity|\n| Recommended Use  | Interactive web applications   |",
@@ -87,7 +93,22 @@
   ],
   "pages_history": [
 	  {
-		  "id": 2,
+		  "id": 1,
+		  "resource": "pages",
+		  "recordId": 0,
+		  "data": {
+			  "id": 0,
+			  "title": "Team Wiki",
+			  "content": "This is the homepage of your **Team Wiki**!",
+			  "category_id": null
+		  },
+		  "authorId": 1,
+		  "date": "2025-06-15T10:00:00Z",
+		  "message": "Default homepage",
+		  "description": null
+	  },
+	  {
+		  "id": 3,
 		  "resource": "pages",
 		  "recordId": 1,
 		  "data": {
@@ -102,7 +123,7 @@
 		  "description": "Expanded content and added summary table"
 	  },
 	  {
-		  "id": 1,
+		  "id": 2,
 		  "resource": "pages",
 		  "recordId": 1,
 		  "data": {
@@ -117,7 +138,7 @@
 		  "description": null
 	  },
 	  {
-		  "id": 4,
+		  "id": 5,
 		  "resource": "pages",
 		  "recordId": 2,
 		  "data": {
@@ -132,7 +153,7 @@
 		  "description": "Expanded technical detail for better readability"
 	  },
 	  {
-		  "id": 3,
+		  "id": 4,
 		  "resource": "pages",
 		  "recordId": 2,
 		  "data": {
@@ -147,7 +168,7 @@
 		  "description": null
 	  },
 	  {
-		  "id": 6,
+		  "id": 7,
 		  "resource": "pages",
 		  "recordId": 3,
 		  "data": {
@@ -162,7 +183,7 @@
 		  "description": "Improved clarity and added framework comparison"
 	  },
 	  {
-		  "id": 5,
+		  "id": 6,
 		  "resource": "pages",
 		  "recordId": 3,
 		  "data": {
@@ -177,7 +198,7 @@
 		  "description": null
 	  },
 	  {
-		  "id": 8,
+		  "id": 9,
 		  "resource": "pages",
 		  "recordId": 4,
 		  "data": {
@@ -192,7 +213,7 @@
 		  "description": "Improved clarity and formatting"
 	  },
 	  {
-		  "id": 7,
+		  "id": 8,
 		  "resource": "pages",
 		  "recordId": 4,
 		  "data": {
@@ -207,7 +228,7 @@
 		  "description": null
 	  },
 	  {
-		  "id": 10,
+		  "id": 11,
 		  "resource": "pages",
 		  "recordId": 5,
 		  "data": {
@@ -222,7 +243,7 @@
 		  "description": "Enhanced article clarity and structure"
 	  },
 	  {
-		  "id": 9,
+		  "id": 10,
 		  "resource": "pages",
 		  "recordId": 5,
 		  "data": {
@@ -237,7 +258,7 @@
 		  "description": null
 	  },
 	  {
-		  "id": 12,
+		  "id": 13,
 		  "resource": "pages",
 		  "recordId": 6,
 		  "data": {
@@ -252,7 +273,7 @@
 		  "description": "Structured content with clear sections and best practices"
 	  },
 	  {
-		  "id": 11,
+		  "id": 12,
 		  "resource": "pages",
 		  "recordId": 6,
 		  "data": {

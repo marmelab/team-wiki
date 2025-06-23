@@ -11,7 +11,7 @@ import {
   MultiLevelMenu,
 } from "@react-admin/ra-navigation";
 import { Search } from "@react-admin/ra-search";
-import { ListTreeIcon, StickyNoteIcon, UserIcon } from "lucide-react";
+import { HomeIcon, ListTreeIcon, StickyNoteIcon, UserIcon } from "lucide-react";
 import { TreeRecord, useGetTree } from "@react-admin/ra-tree";
 
 const AppBar = () => (
@@ -96,6 +96,8 @@ const Menu = () => {
 
   return (
     <MultiLevelMenu>
+      <MultiLevelMenu.DashboardItem icon={<HomeIcon />} label="Home" />
+
       <MultiLevelMenu.Item
         name="categories"
         icon={<ListTreeIcon />}

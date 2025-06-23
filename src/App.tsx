@@ -23,6 +23,7 @@ import {
   UsersList,
   UsersShow,
 } from "./resources/users.tsx";
+import { Homepage } from "./Homepage.tsx";
 
 const i18nProvider = polyglotI18nProvider(() => {
   // Always fallback on english
@@ -33,6 +34,7 @@ export const App = () => (
   <Admin
     theme={appTheme}
     layout={Layout}
+    dashboard={Homepage}
     dataProvider={dataProvider}
     authProvider={authProvider}
     i18nProvider={i18nProvider}
