@@ -21,4 +21,5 @@ export const dataProvider = addSearchMethod(
       label: "name",
     },
   },
+  "show",
 );
