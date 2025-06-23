@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   DateField,
   Empty,
@@ -82,6 +83,8 @@ export function NewMessageForm({ title }: { title: string }) {
   const { data: authenticatedAccount } = useGetIdentity();
   const [create] = useCreate();
 
+  const [forceReset, setForceReset] = useState(0);
+
   return (
     <Card>
       <Typography
@@ -91,9 +94,11 @@ export function NewMessageForm({ title }: { title: string }) {
         {title}
       </Typography>
       <SimpleForm
+        key={forceReset}
+        resource="page_messages"
         toolbar={<MessageFormToolbar />}
         onSubmit={async (data: any) => {
-          return await create("pages_messages", {
+          const newMessage = await create("pages_messages", {
             data: {
               page_id: pageId,
               author_id: authenticatedAccount?.id,
@@ -101,6 +106,8 @@ export function NewMessageForm({ title }: { title: string }) {
               message: data.message,
             },
           });
+          setForceReset(forceReset + 1);
+          return newMessage;
         }}
       >
         <PageMarkdownInput source={"message"} height="15em" />
