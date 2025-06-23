@@ -3,15 +3,15 @@ import {
   DataTable,
   Edit,
   FunctionField,
+  Labeled,
   List,
   PasswordInput,
   Show,
   SimpleForm,
-  SimpleShowLayout,
   TextField,
   TextInput,
 } from "react-admin";
-import { Avatar } from "@mui/material";
+import { Avatar, Box, Stack } from "@mui/material";
 
 export function UsersList() {
   return (
@@ -33,15 +33,27 @@ export function UsersList() {
 export function UsersShow() {
   return (
     <Show>
-      <SimpleShowLayout>
+      <Box
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        padding="1em"
+        gap="1em"
+      >
         <FunctionField
           source="avatar"
           render={(record) => <Avatar src={record.avatar} />}
         />
 
-        <TextField source="username" />
-        <TextField source="fullName" />
-      </SimpleShowLayout>
+        <Stack>
+          <Labeled label="Username">
+            <TextField source="username" />
+          </Labeled>
+          <Labeled label="Full name">
+            <TextField source="fullName" />
+          </Labeled>
+        </Stack>
+      </Box>
     </Show>
   );
 }
