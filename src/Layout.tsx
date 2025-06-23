@@ -11,7 +11,7 @@ import {
   MultiLevelMenu,
 } from "@react-admin/ra-navigation";
 import { Search } from "@react-admin/ra-search";
-import { ListTreeIcon, StickyNoteIcon } from "lucide-react";
+import { ListTreeIcon, StickyNoteIcon, UserIcon } from "lucide-react";
 import { TreeRecord, useGetTree } from "@react-admin/ra-tree";
 
 const AppBar = () => (
@@ -115,6 +115,13 @@ const Menu = () => {
             <RecursiveMenuItem category={category} tree={tree.data} />
           ),
       )}
+
+      <MultiLevelMenu.Item
+        name="users"
+        icon={<UserIcon />}
+        label="Users"
+        to="/users"
+      />
     </MultiLevelMenu>
   );
 };

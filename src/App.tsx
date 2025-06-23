@@ -2,6 +2,8 @@ import { Admin, mergeTranslations, Resource } from "react-admin";
 import polyglotI18nProvider from "ra-i18n-polyglot";
 import englishMessages from "ra-language-english";
 import { raTreeLanguageEnglish } from "@react-admin/ra-tree";
+import { Route } from "react-router";
+import { ListTreeIcon, StickyNoteIcon } from "lucide-react";
 
 import { dataProvider } from "./dataProvider";
 import { authProvider } from "./authProvider";
@@ -14,9 +16,13 @@ import {
 } from "./resources/pages.tsx";
 import { appTheme } from "./theme.ts";
 import { CategoriesList, CategoriesShow } from "./resources/categories.tsx";
-import { ListTreeIcon, StickyNoteIcon } from "lucide-react";
 import { PagesMessagesList } from "./resources/pages-messages.tsx";
-import { Route } from "react-router";
+import {
+  UsersCreate,
+  UsersEdit,
+  UsersList,
+  UsersShow,
+} from "./resources/users.tsx";
 
 const i18nProvider = polyglotI18nProvider(() => {
   // Always fallback on english
@@ -47,5 +53,14 @@ export const App = () => (
     >
       <Route path=":id/talk" element={<PagesMessagesList />} />
     </Resource>
+
+    <Resource
+      name={"users"}
+      list={UsersList}
+      show={UsersShow}
+      edit={UsersEdit}
+      create={UsersCreate}
+      recordRepresentation="fullName"
+    />
   </Admin>
 );
