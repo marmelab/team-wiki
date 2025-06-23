@@ -125,7 +125,7 @@ export const PageShow = () => {
   const { data: page } = useGetOne("pages", { id: pageId });
   const { data: category } = useGetOne("categories", { id: page?.category_id });
   useDefineAppLocation(
-    (category.parent_id ? "nested." : "") + "category.page",
+    (category?.parent_id ? "nested." : "") + "category.page",
     { page, category },
   );
 
