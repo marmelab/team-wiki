@@ -21,6 +21,7 @@ import {
   FieldDiff,
   RevisionsButton,
   SimpleFormWithRevision,
+  SmartFieldDiff,
 } from "@react-admin/ra-history";
 import { Box, Button, Link, Stack, Typography } from "@mui/material";
 import { fromMarkdown } from "react-markdown-toc";
@@ -54,7 +55,9 @@ export const PageList = () => (
 export const PageDiff = () => (
   <Stack gap={1}>
     <FieldDiff source="title" />
-    <MarkdownField source="content" />
+    <Typography component="pre">
+      <SmartFieldDiff source="content" />
+    </Typography>
   </Stack>
 );
 
