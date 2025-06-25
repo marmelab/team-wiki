@@ -15,7 +15,7 @@ import {
   ListItemText,
 } from "@mui/material";
 
-function PageSearchResultItem<
+const PageSearchResultItem = <
   RecordType extends DefaultContent = DefaultContent,
 >({
   data,
@@ -25,25 +25,23 @@ function PageSearchResultItem<
 }: {
   data?: SearchResultDataItem<RecordType>;
   onItemClick?: (data: SearchResultDataItem<RecordType>) => void;
-} & ListItemButtonProps) {
-  return (
-    <ListItem>
-      <ListItemButton
-        onClick={(event) => {
-          onClick?.(event);
-          onItemClick?.(data!);
-        }}
-        {...props}
-      >
-        <ListItemText
-          className="highlight"
-          primary={data?.content?.label}
-          secondary={data?.content?.description}
-        />
-      </ListItemButton>
-    </ListItem>
-  );
-}
+} & ListItemButtonProps) => (
+  <ListItem>
+    <ListItemButton
+      onClick={(event) => {
+        onClick?.(event);
+        onItemClick?.(data!);
+      }}
+      {...props}
+    >
+      <ListItemText
+        className="highlight"
+        primary={data?.content?.label}
+        secondary={data?.content?.description}
+      />
+    </ListItemButton>
+  </ListItem>
+);
 
 export const PageMarkdownInput = forwardRef<Editor, MarkdownInputProps>(
   ({ source, ...props }, outerRef) => {

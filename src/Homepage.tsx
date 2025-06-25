@@ -8,7 +8,7 @@ import {
   useGetList,
 } from "react-admin";
 
-export function HomepageSidebar() {
+export const HomepageSidebar = () => {
   const recentRevisions = useGetList("pages_history", {
     sort: {
       field: "date",
@@ -34,18 +34,16 @@ export function HomepageSidebar() {
       />
     </Stack>
   );
-}
+};
 
-export function Homepage() {
-  return (
-    <Show title="Homepage" resource="pages" id="0" aside={<HomepageSidebar />}>
-      <FunctionField
-        source="title"
-        render={({ title }) => <CardHeader title={title} />}
-      />
-      <CardContent>
-        <MarkdownField source="content" />
-      </CardContent>
-    </Show>
-  );
-}
+export const Homepage = () => (
+  <Show title="Homepage" resource="pages" id="0" aside={<HomepageSidebar />}>
+    <FunctionField
+      source="title"
+      render={({ title }) => <CardHeader title={title} />}
+    />
+    <CardContent>
+      <MarkdownField source="content" />
+    </CardContent>
+  </Show>
+);
