@@ -1,67 +1,38 @@
-import React from "react";
 import {
-  DataTable,
-  List,
-  Edit,
-  TextInput,
-  ReferenceField,
-  Show,
+  EditButton,
+  FunctionField,
+  Show as RAShow,
   TextField,
   TopToolbar,
-  EditButton,
-  ShowButton,
-  FunctionField,
-  Create,
-  required,
   useGetOne,
   useRecordContext,
 } from "react-admin";
-import { MarkdownField } from "@react-admin/ra-markdown";
-import {
-  FieldDiff,
-  RevisionsButton,
-  SimpleFormWithRevision,
-  SmartFieldDiff,
-} from "@react-admin/ra-history";
 import { Box, Button, Link, Stack, Typography } from "@mui/material";
+import { Link as NativeLink, useLocation, useParams } from "react-router";
+import { MessagesSquare } from "lucide-react";
+import { RevisionsButton } from "@react-admin/ra-history";
 import { fromMarkdown } from "react-markdown-toc";
 import { TOC } from "react-markdown-toc/client";
-import { ReferenceNodeInput } from "@react-admin/ra-tree";
-import { Link as NativeLink, useLocation, useParams } from "react-router";
+import { useDefineAppLocation } from "@react-admin/ra-navigation";
+import { MarkdownField } from "@react-admin/ra-markdown";
 import { HeadingMdNode } from "@toast-ui/editor";
 import { slug } from "github-slugger";
 
-import { PageMarkdownInput } from "../inputs/PageMarkdownInput.tsx";
-import { nodeToString } from "../utils.ts";
-import { useDefineAppLocation } from "@react-admin/ra-navigation";
-import { MessagesSquare } from "lucide-react";
+import { Diff } from "./Diff";
+import { nodeToString } from "../../utils.ts";
 
-export const PageList = () => (
-  <List
-    sort={{
-      field: "title",
-      order: "ASC",
-    }}
-  >
-    <DataTable>
-      <DataTable.Col source="title" />
-      <DataTable.Col source="category_id">
-        <ReferenceField source="category_id" reference="categories" />
-      </DataTable.Col>
-    </DataTable>
-  </List>
-);
+const useBaseUrl = () => {
+  const { pathname } = useLocation();
 
-export const PageDiff = () => (
-  <Stack gap={1}>
-    <FieldDiff source="title" />
-    <Typography component="pre">
-      <SmartFieldDiff source="content" />
-    </Typography>
-  </Stack>
-);
+  // Extract the actual page URL from the full pathname (which includes the anchored title).
+  let baseUrl = pathname;
+  const match = pathname.match(/^(.*)\/at\/.*$/);
+  if (match) [, baseUrl] = match;
 
-export const PageShowToolbar = () => {
+  return baseUrl;
+};
+
+const ShowToolbar = () => {
   const record = useRecordContext();
 
   return (
@@ -75,24 +46,13 @@ export const PageShowToolbar = () => {
       >
         Discussions
       </Button>
-      <RevisionsButton diff={<PageDiff />} />
+      <RevisionsButton diff={<Diff />} />
       <EditButton />
     </TopToolbar>
   );
 };
 
-const useBaseUrl = () => {
-  const { pathname } = useLocation();
-
-  // Extract the actual page URL from the full pathname (which includes the anchored title).
-  let baseUrl = pathname;
-  const match = pathname.match(/^(.*)\/at\/.*$/);
-  if (match) [, baseUrl] = match;
-
-  return baseUrl;
-};
-
-export const PageSidebar = () => {
+const Sidebar = () => {
   const baseUrl = useBaseUrl();
 
   return (
@@ -136,7 +96,7 @@ export const PageSidebar = () => {
   );
 };
 
-export const PageShow = () => {
+export const Show = () => {
   const baseUrl = useBaseUrl();
 
   const { id: pageId } = useParams<{ id: string }>();
@@ -148,7 +108,7 @@ export const PageShow = () => {
   );
 
   return (
-    <Show aside={<PageSidebar />} actions={<PageShowToolbar />} title={false}>
+    <RAShow aside={<Sidebar />} actions={<ShowToolbar />} title={false}>
       <Box padding={2}>
         <TextField
           source="title"
@@ -183,34 +143,6 @@ export const PageShow = () => {
           />
         </Box>
       </Box>
-    </Show>
+    </RAShow>
   );
 };
-
-export const PageEditToolbar = () => (
-  <TopToolbar>
-    <RevisionsButton diff={<PageDiff />} allowRevert />
-    <ShowButton />
-  </TopToolbar>
-);
-
-export const PageEdit = () => (
-  <Edit actions={<PageEditToolbar />} title={"Edit Page"}>
-    <SimpleFormWithRevision>
-      <TextInput source="id" readOnly />
-      <TextInput source="title" validate={required()} />
-      <PageMarkdownInput source="content" />
-      <ReferenceNodeInput source="category_id" reference="categories" />
-    </SimpleFormWithRevision>
-  </Edit>
-);
-
-export const PageCreate = () => (
-  <Create>
-    <SimpleFormWithRevision>
-      <TextInput source="title" validate={required()} />
-      <PageMarkdownInput source="content" />
-      <ReferenceNodeInput source="category_id" reference="categories" />
-    </SimpleFormWithRevision>
-  </Create>
-);
