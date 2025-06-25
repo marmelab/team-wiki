@@ -7,7 +7,7 @@ import { ListTreeIcon, StickyNoteIcon } from "lucide-react";
 
 import { dataProvider } from "./dataProvider";
 import { authProvider } from "./authProvider";
-import { Layout } from "./Layout";
+import { Layout } from "./layout";
 import {
   PageCreate,
   PageEdit,
