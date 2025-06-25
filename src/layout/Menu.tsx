@@ -1,5 +1,5 @@
 import { MultiLevelMenu } from "@react-admin/ra-navigation";
-import { HomeIcon, ListTreeIcon, StickyNoteIcon, UserIcon } from "lucide-react";
+import { HomeIcon, ListTreeIcon, StickyNoteIcon } from "lucide-react";
 import { TreeRecord, useGetTree } from "@react-admin/ra-tree";
 
 const RecursiveMenuItem = ({
@@ -56,13 +56,6 @@ export const Menu = () => {
             <RecursiveMenuItem category={category} tree={tree.data} />
           ),
       )}
-
-      <MultiLevelMenu.Item
-        name="users"
-        icon={<UserIcon />}
-        label="Users"
-        to="/users"
-      />
     </MultiLevelMenu>
   );
 };
