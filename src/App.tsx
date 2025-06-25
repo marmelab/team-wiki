@@ -6,9 +6,10 @@ import { Route } from "react-router";
 
 import { dataProvider } from "./dataProvider";
 import { authProvider } from "./authProvider";
-import { Layout } from "./layout";
 import { appTheme } from "./theme.ts";
+import { Layout } from "./layout";
 import { Homepage } from "./Homepage.tsx";
+import { LoginPage } from "./LoginPage.tsx";
 import { categories } from "./resources/categories";
 import { pages } from "./resources/pages";
 import { users } from "./resources/users";
@@ -24,6 +25,7 @@ export const App = () => (
     theme={appTheme}
     layout={Layout}
     dashboard={Homepage}
+    loginPage={LoginPage}
     dataProvider={dataProvider}
     authProvider={authProvider}
     i18nProvider={i18nProvider}
