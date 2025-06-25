@@ -8,13 +8,12 @@ import {
   SearchWithResult,
 } from "@react-admin/ra-search";
 import {
+  Box,
   ListItem,
   ListItemButton,
   ListItemButtonProps,
   ListItemText,
 } from "@mui/material";
-
-import "./PageMarkdownInput.css";
 
 function PageSearchResultItem<
   RecordType extends DefaultContent = DefaultContent,
@@ -74,10 +73,32 @@ export const PageMarkdownInput = forwardRef<Editor, MarkdownInputProps>(
     }, [editorRef]);
 
     return (
-      <>
+      <Box
+        className="page-markdown-input"
+        sx={{
+          width: "100%",
+
+          [".toastui-editor-popup-body .page-reference-popup"]: {
+            display: "block",
+          },
+          ["button.toastui-editor-toolbar-icons.reference"]: {
+            fontSize: "1em!important",
+          },
+        }}
+      >
         <MarkdownInput ref={editorRef} source={source} {...props} />
 
-        <div className="page-reference-popup" ref={pagePopupRef}>
+        <Box
+          className="page-reference-popup"
+          sx={{
+            display: "none",
+
+            ["& input"]: {
+              display: "block",
+            },
+          }}
+          ref={pagePopupRef}
+        >
           <SearchWithResult
             options={{ targets: ["pages"] }}
             sx={{
@@ -119,8 +140,8 @@ export const PageMarkdownInput = forwardRef<Editor, MarkdownInputProps>(
               />
             </SearchResultsPanel>
           </SearchWithResult>
-        </div>
-      </>
+        </Box>
+      </Box>
     );
   },
 );
