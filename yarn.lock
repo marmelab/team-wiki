@@ -1209,9 +1209,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-admin/ra-markdown@npm:^5.0.2":
-  version: 5.1.0
-  resolution: "@react-admin/ra-markdown@npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.marmelab.com%2Fdownload%2F%40react-admin%2Fra-markdown%2F5.1.0%2Fd7ff3dbe13dbe02e7ef19a1c776822834cf13c9c"
+"@react-admin/ra-markdown@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "@react-admin/ra-markdown@npm:5.1.1::__archiveUrl=https%3A%2F%2Fregistry.marmelab.com%2Fdownload%2F%40react-admin%2Fra-markdown%2F5.1.1%2F5c9ab60de32f449ed9a906c30217623f2fb4825f"
   dependencies:
     "@toast-ui/editor": "npm:^3.2.2"
     prosemirror-commands: "npm:^1.5.2"
@@ -1222,7 +1222,7 @@ __metadata:
     react: ^18.0.0 || ^19.0.0
     react-admin: ^5.0.2
     react-dom: ^18.0.0 || ^19.0.0
-  checksum: 10c0/a7dbdb531ba10e0b17048473c872c80f2205409a8845a20d811589ae22590c288ed2650d1b6a913ac9055cc3fb2be86c349ce2a408f4a1cb4ec767edfa490e60
+  checksum: 10c0/f51021cc94f1cd9bc2a9104061ff7dc41d50da1bc4fd4bf3a53f31ab1b667188531adf69157499213e2eafd9af62c62d4d6c04f7930d2bdfc0540ccdaba07fdf
   languageName: node
   linkType: hard
 
@@ -6306,7 +6306,7 @@ __metadata:
     "@mui/icons-material": "npm:^6"
     "@mui/material": "npm:^6"
     "@react-admin/ra-history": "npm:^5.0.1"
-    "@react-admin/ra-markdown": "npm:^5.0.2"
+    "@react-admin/ra-markdown": "npm:^5.1.1"
     "@react-admin/ra-navigation": "npm:^6.0.0"
     "@react-admin/ra-search": "npm:^5.3.5"
     "@react-admin/ra-tree": "npm:^6.2.1"
