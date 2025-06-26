@@ -1,24 +1,35 @@
 import {
   EditButton,
-  FunctionField,
-  Show as RAShow,
+  Link,
+  ReferenceManyCount,
+  Show,
   TextField,
   TopToolbar,
+  useDataProvider,
   useGetOne,
   useRecordContext,
 } from "react-admin";
-import { Box, Button, Link, Stack, Typography } from "@mui/material";
-import { Link as NativeLink, useLocation, useParams } from "react-router";
+import {
+  Box,
+  Breadcrumbs,
+  Button,
+  Link as MUILink,
+  Stack,
+  Typography,
+} from "@mui/material";
+import { useLocation, useParams, Link as NativeLink } from "react-router";
 import { MessagesSquare } from "lucide-react";
 import { RevisionsButton } from "@react-admin/ra-history";
-import { fromMarkdown } from "react-markdown-toc";
-import { TOC } from "react-markdown-toc/client";
 import { useDefineAppLocation } from "@react-admin/ra-navigation";
 import { MarkdownField } from "@react-admin/ra-markdown";
+import { fromMarkdown } from "react-markdown-toc";
+import { TOC } from "react-markdown-toc/client";
 import { HeadingMdNode } from "@toast-ui/editor";
 import { slug } from "github-slugger";
+import { useQuery } from "@tanstack/react-query";
 
-import { Diff } from "./Diff";
+import type { Category } from "../../types";
+import { Diff } from "./Diff.tsx";
 import { nodeToString } from "../../utils.ts";
 
 const useBaseUrl = () => {
@@ -37,6 +48,7 @@ const ShowToolbar = () => {
 
   return (
     <TopToolbar>
+      <CategoryTree />
       <Button
         component={NativeLink}
         to={`/pages/${record?.id}/talk`}
@@ -44,7 +56,12 @@ const ShowToolbar = () => {
         startIcon={<MessagesSquare size="1em" />}
         sx={{ lineHeight: 1.5 }}
       >
-        Discussions
+        <ReferenceManyCount
+          reference="pages_messages"
+          target="page_id"
+          sx={{ fontWeight: "bold", mr: 0.5 }}
+        />{" "}
+        comments
       </Button>
       <RevisionsButton diff={<Diff />} />
       <EditButton />
@@ -54,49 +71,45 @@ const ShowToolbar = () => {
 
 const Sidebar = () => {
   const baseUrl = useBaseUrl();
+  const record = useRecordContext();
+  const content = record?.content;
+  const toc = fromMarkdown(content);
 
   return (
-    <FunctionField
-      source="content"
-      render={({ content }) => {
-        const toc = fromMarkdown(content);
-
-        return (
-          <Stack
-            sx={{
-              width: "20em",
-              position: "sticky",
-              top: "4em",
-
-              ["ul"]: {
-                margin: 0,
-                padding: 0,
-              },
-              ["li"]: {
-                margin: "0.5em 0",
-                padding: "0 1em",
-                listStyle: "none",
-              },
-            }}
-          >
-            <TOC
-              toc={toc}
-              renderList={(children) => <ul>{children}</ul>}
-              renderListItem={(children) => <li>{children}</li>}
-              renderLink={(children, url) => (
-                <Link href={`#${baseUrl}/at/${url.substring(1)}`}>
-                  {children}
-                </Link>
-              )}
-            />
-          </Stack>
-        );
+    <Stack
+      component="ul"
+      sx={{
+        width: "20em",
+        position: "sticky",
+        top: "4em",
+        pl: 0,
+        mt: 0,
+        ["ul"]: {
+          margin: 0,
+          padding: 0,
+        },
+        ["li"]: {
+          margin: "0.5em 0",
+          padding: "0 1em",
+          listStyle: "none",
+        },
       }}
-    />
+    >
+      <TOC
+        toc={toc}
+        renderList={(children) => <ul>{children}</ul>}
+        renderListItem={(children) => <li>{children}</li>}
+        renderLink={(children, url) => (
+          <MUILink href={`#${baseUrl}/at/${url.substring(1)}`}>
+            {children}
+          </MUILink>
+        )}
+      />
+    </Stack>
   );
 };
 
-export const Show = () => {
+export const PageShow = () => {
   const baseUrl = useBaseUrl();
 
   const { id: pageId } = useParams<{ id: string }>();
@@ -108,7 +121,7 @@ export const Show = () => {
   );
 
   return (
-    <RAShow aside={<Sidebar />} actions={<ShowToolbar />} title={false}>
+    <Show aside={<Sidebar />} actions={<ShowToolbar />} title={false}>
       <Box padding={2}>
         <TextField
           source="title"
@@ -143,6 +156,27 @@ export const Show = () => {
           />
         </Box>
       </Box>
-    </RAShow>
+    </Show>
+  );
+};
+
+const CategoryTree = () => {
+  const record = useRecordContext();
+  const dataProvider = useDataProvider();
+  const { data: ancestors } = useQuery<{ data: Category[] }>({
+    queryKey: ["categories", "getAncestorNodes", record?.category_id],
+    queryFn: () =>
+      dataProvider.getRootPath("categories", { childId: record?.category_id }),
+  });
+  return (
+    <Breadcrumbs sx={{ flexGrow: 1 }}>
+      <Link to={`/`}>Home</Link>
+      {ancestors?.data?.map((ancestor) => (
+        <Link key={ancestor.id} to={`/categories/${ancestor.id}/show`}>
+          {ancestor.name}
+        </Link>
+      ))}
+      <Typography color="textSecondary">{record?.title}</Typography>
+    </Breadcrumbs>
   );
 };

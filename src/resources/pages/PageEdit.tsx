@@ -1,10 +1,4 @@
-import {
-  Edit as RAEdit,
-  required,
-  ShowButton,
-  TextInput,
-  TopToolbar,
-} from "react-admin";
+import { Edit, required, ShowButton, TextInput, TopToolbar } from "react-admin";
 import {
   RevisionsButton,
   SimpleFormWithRevision,
@@ -12,7 +6,7 @@ import {
 import { ReferenceNodeInput } from "@react-admin/ra-tree";
 
 import { PageMarkdownInput } from "../../inputs/PageMarkdownInput.tsx";
-import { Diff } from "./Diff";
+import { Diff } from "./Diff.tsx";
 
 export const EditToolbar = () => (
   <TopToolbar>
@@ -21,13 +15,12 @@ export const EditToolbar = () => (
   </TopToolbar>
 );
 
-export const Edit = () => (
-  <RAEdit actions={<EditToolbar />} title="Edit Page">
+export const PageEdit = () => (
+  <Edit actions={<EditToolbar />} redirect="show" title="Edit Page">
     <SimpleFormWithRevision>
-      <TextInput source="id" readOnly />
       <TextInput source="title" validate={required()} />
       <PageMarkdownInput source="content" />
       <ReferenceNodeInput source="category_id" reference="categories" />
     </SimpleFormWithRevision>
-  </RAEdit>
+  </Edit>
 );

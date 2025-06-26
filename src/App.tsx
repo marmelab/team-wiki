@@ -7,7 +7,7 @@ import { Route } from "react-router";
 import { dataProvider } from "./dataProvider";
 import { authProvider } from "./authProvider";
 import { appTheme } from "./theme.ts";
-import { Layout } from "./layout";
+import { Layout } from "./layout/Layout.tsx";
 import { Homepage } from "./Homepage.tsx";
 import { LoginPage } from "./LoginPage.tsx";
 import { categories } from "./resources/categories";
@@ -29,6 +29,7 @@ export const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
     i18nProvider={i18nProvider}
+    title="Acme Wiki"
   >
     <Resource name="categories" {...categories} />
     <Resource name="pages" {...pages}>
