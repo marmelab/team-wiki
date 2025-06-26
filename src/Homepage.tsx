@@ -1,12 +1,7 @@
-import {
-  Avatar,
-  CardContent,
-  CardHeader,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, CardContent, Stack, Typography } from "@mui/material";
 import { MarkdownField } from "@react-admin/ra-markdown";
 import {
+  CreateButton,
   DateField,
   TextField,
   Link,
@@ -14,8 +9,6 @@ import {
   Show,
   WithRecord,
   SingleFieldList,
-  WithListContext,
-  RecordContextProvider,
   ReferenceField,
   RecordRepresentation,
   useRecordContext,
@@ -28,15 +21,30 @@ export const Homepage = () => (
     id="0"
     aside={<HomepageSidebar />}
     actions={
-      <Stack direction="row" spacing={1} sx={{ justifyContent: "end", my: 2 }}>
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{ alignItems: "center", justifyContent: "end", my: 2 }}
+      >
         <Link to="/categories">Categories</Link>
         <Link to="/pages">All pages</Link>
+        <CreateButton resource="pages" />
       </Stack>
     }
   >
-    <WithRecord render={({ title }) => <CardHeader title={title} />} />
     <CardContent>
-      <MarkdownField source="content" />
+      <TextField
+        source="title"
+        variant="h2"
+        gutterBottom
+        sx={{
+          fontSize: "2.5em",
+          textAlign: "center",
+        }}
+      />
+      <Box>
+        <MarkdownField source="content" />
+      </Box>
     </CardContent>
   </Show>
 );

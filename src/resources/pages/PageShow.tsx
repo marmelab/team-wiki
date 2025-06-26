@@ -125,18 +125,12 @@ export const PageShow = () => {
       <Box padding={2}>
         <TextField
           source="title"
-          component={({ children }: { children: React.ReactNode }) => (
-            <Typography
-              variant="h2"
-              gutterBottom
-              sx={{
-                fontSize: "2.5em",
-                textAlign: "center",
-              }}
-            >
-              {children}
-            </Typography>
-          )}
+          variant="h2"
+          gutterBottom
+          sx={{
+            fontSize: "2.5em",
+            textAlign: "center",
+          }}
         />
 
         <Box>

@@ -78,8 +78,8 @@
   "pages": [
     {
       "id": 0,
-      "title": "Team Wiki",
-      "content": "This is the homepage of your **Team Wiki**!",
+      "title": "Welcome",
+      "content": "This is the homepage of your **Team Wiki**!\n\n## Getting Started\n- Explore the categories to find topics of interest.\n- Use the search bar to quickly find specific content.\n- Contribute by adding new pages or editing existing ones.\n\n## Featured Articles\n- [Introduction to Functional Programming](#/pages/4/show)\n- [Understanding Single-Page Applications](#/pages/1/show)\n- [Emerging Technologies](#/pages/5/show)\n\n## How to Contribute\n1. Click on 'Create' to create a new page.\n2. Use the editor to write your content in Markdown.\n3. Save your changes and share with the team!\n\nHappy collaborating!",
       "category_id": null
     },
     {
@@ -126,8 +126,8 @@
       "recordId": 0,
       "data": {
         "id": 0,
-        "title": "Team Wiki",
-        "content": "This is the homepage of your **Team Wiki**!",
+        "title": "Welcome",
+        "content": "This is the homepage of your **Team Wiki**!\n\n## Getting Started\n- Explore the categories to find topics of interest.\n- Use the search bar to quickly find specific content.\n- Contribute by adding new pages or editing existing ones.\n\n## Featured Articles\n- [Introduction to Functional Programming](#/pages/4/show)\n- [Understanding Single-Page Applications](#/pages/1/show)\n- [Emerging Technologies](#/pages/5/show)\n\n## How to Contribute\n1. Click on 'Create' to create a new page.\n2. Use the editor to write your content in Markdown.\n3. Save your changes and share with the team!\n\nHappy collaborating!",
         "category_id": null
       },
       "authorId": 1,
