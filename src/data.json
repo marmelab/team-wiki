@@ -322,7 +322,7 @@
       "page_id": 1,
       "author_id": 1,
       "date": "2025-10-01T12:00:00Z",
-      "message": "I'm adding a message in the page discussion."
+      "message": "I don't think we should recommend pre-rendering or server-side rendering. For internal apps, client-side rendering is sufficient and simpler to implement."
     },
     {
       "id": "2",
@@ -337,6 +337,13 @@
       "author_id": 4,
       "date": "2025-05-02T16:30:00Z",
       "message": "You're right, we should consider adding those. They offer unique benefits and are worth mentioning in the context of modern frontend development. Would you like to draft a section on them?"
+    },
+    {
+      "id": "4",
+      "page_id": 4,
+      "author_id": 1,
+      "date": "2025-05-02T17:00:00Z",
+      "message": "This is a bit short. We should expand on the benefits of functional programming and maybe add some examples or use cases."
     }
   ]
 }
