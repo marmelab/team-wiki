@@ -1,36 +1,60 @@
 import {
   EditButton,
-  Link,
   ReferenceManyCount,
   Show,
   TextField,
   TopToolbar,
-  useDataProvider,
-  useGetOne,
   useRecordContext,
 } from "react-admin";
-import {
-  Box,
-  Breadcrumbs,
-  Button,
-  Link as MUILink,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { useLocation, useParams, Link as NativeLink } from "react-router";
+import { Box, Button, Link as MUILink, Stack } from "@mui/material";
+import { useLocation, Link as NativeLink } from "react-router";
 import { MessagesSquare } from "lucide-react";
 import { RevisionsButton } from "@react-admin/ra-history";
-import { useDefineAppLocation } from "@react-admin/ra-navigation";
 import { MarkdownField } from "@react-admin/ra-markdown";
 import { fromMarkdown } from "react-markdown-toc";
 import { TOC } from "react-markdown-toc/client";
 import { HeadingMdNode } from "@toast-ui/editor";
 import { slug } from "github-slugger";
-import { useQuery } from "@tanstack/react-query";
 
-import type { Category } from "../../types";
+import { CategoryTree } from "../categories/CategoryTree.tsx";
 import { Diff } from "./Diff.tsx";
 import { nodeToString } from "../../utils.ts";
+
+export const PageShow = () => {
+  const baseUrl = useBaseUrl();
+  return (
+    <Show aside={<Sidebar />} actions={<ShowToolbar />} title={false}>
+      <Box padding={2}>
+        <TextField
+          source="title"
+          variant="h2"
+          gutterBottom
+          sx={{
+            fontSize: "2.5em",
+            textAlign: "center",
+          }}
+        />
+
+        <Box>
+          <MarkdownField
+            source="content"
+            customHTMLRenderer={{
+              heading(node, context) {
+                return {
+                  type: context.entering ? "openTag" : "closeTag",
+                  tagName: `h${(node as HeadingMdNode).level}`,
+                  attributes: {
+                    id: `${baseUrl}/at/${slug(nodeToString(node))}`,
+                  },
+                };
+              },
+            }}
+          />
+        </Box>
+      </Box>
+    </Show>
+  );
+};
 
 const useBaseUrl = () => {
   const { pathname } = useLocation();
@@ -45,7 +69,6 @@ const useBaseUrl = () => {
 
 const ShowToolbar = () => {
   const record = useRecordContext();
-
   return (
     <TopToolbar>
       <CategoryTree />
@@ -106,71 +129,5 @@ const Sidebar = () => {
         )}
       />
     </Stack>
-  );
-};
-
-export const PageShow = () => {
-  const baseUrl = useBaseUrl();
-
-  const { id: pageId } = useParams<{ id: string }>();
-  const { data: page } = useGetOne("pages", { id: pageId });
-  const { data: category } = useGetOne("categories", { id: page?.category_id });
-  useDefineAppLocation(
-    (category?.parent_id ? "nested." : "") + "category.page",
-    { page, category },
-  );
-
-  return (
-    <Show aside={<Sidebar />} actions={<ShowToolbar />} title={false}>
-      <Box padding={2}>
-        <TextField
-          source="title"
-          variant="h2"
-          gutterBottom
-          sx={{
-            fontSize: "2.5em",
-            textAlign: "center",
-          }}
-        />
-
-        <Box>
-          <MarkdownField
-            source="content"
-            customHTMLRenderer={{
-              heading(node, context) {
-                return {
-                  type: context.entering ? "openTag" : "closeTag",
-                  tagName: `h${(node as HeadingMdNode).level}`,
-                  attributes: {
-                    id: `${baseUrl}/at/${slug(nodeToString(node))}`,
-                  },
-                };
-              },
-            }}
-          />
-        </Box>
-      </Box>
-    </Show>
-  );
-};
-
-const CategoryTree = () => {
-  const record = useRecordContext();
-  const dataProvider = useDataProvider();
-  const { data: ancestors } = useQuery<{ data: Category[] }>({
-    queryKey: ["categories", "getAncestorNodes", record?.category_id],
-    queryFn: () =>
-      dataProvider.getRootPath("categories", { childId: record?.category_id }),
-  });
-  return (
-    <Breadcrumbs sx={{ flexGrow: 1 }}>
-      <Link to={`/`}>Home</Link>
-      {ancestors?.data?.map((ancestor) => (
-        <Link key={ancestor.id} to={`/categories/${ancestor.id}/show`}>
-          {ancestor.name}
-        </Link>
-      ))}
-      <Typography color="textSecondary">{record?.title}</Typography>
-    </Breadcrumbs>
   );
 };

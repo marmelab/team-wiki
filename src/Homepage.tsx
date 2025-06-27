@@ -13,6 +13,7 @@ import {
   RecordRepresentation,
   useRecordContext,
 } from "react-admin";
+import { User } from "./types";
 
 export const Homepage = () => (
   <Show
@@ -24,11 +25,11 @@ export const Homepage = () => (
       <Stack
         direction="row"
         spacing={2}
-        sx={{ alignItems: "center", justifyContent: "end", my: 2 }}
+        sx={{ alignItems: "center", justifyContent: "end", pt: 1.25, pb: 2 }}
       >
         <Link to="/categories">Categories</Link>
         <Link to="/pages">All pages</Link>
-        <CreateButton resource="pages" />
+        <CreateButton resource="pages" label="Add page" />
       </Stack>
     }
   >
@@ -79,8 +80,8 @@ const Change = () => {
       <TextField source="message" variant="body1" color="textDisabled" />
       <Stack direction="row" gap={1} sx={{ alignItems: "center" }}>
         <ReferenceField source="authorId" reference="users" link={false}>
-          <WithRecord
-            render={(record: any) => (
+          <WithRecord<User>
+            render={(record) => (
               <Avatar src={record.avatar} sx={{ width: 24, height: 24 }} />
             )}
           />

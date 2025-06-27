@@ -16,7 +16,7 @@ export const PageList = () => (
     pagination={false}
     actions={
       <TopToolbar>
-        <CreateButton />
+        <CreateButton label="Add page" />
       </TopToolbar>
     }
   >

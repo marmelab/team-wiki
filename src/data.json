@@ -79,7 +79,7 @@
     {
       "id": 0,
       "title": "Welcome",
-      "content": "This is the homepage of your **Team Wiki**!\n\n## Getting Started\n- Explore the categories to find topics of interest.\n- Use the search bar to quickly find specific content.\n- Contribute by adding new pages or editing existing ones.\n\n## Featured Articles\n- [Introduction to Functional Programming](#/pages/4/show)\n- [Understanding Single-Page Applications](#/pages/1/show)\n- [Emerging Technologies](#/pages/5/show)\n\n## How to Contribute\n1. Click on 'Create' to create a new page.\n2. Use the editor to write your content in Markdown.\n3. Save your changes and share with the team!\n\nHappy collaborating!",
+      "content": "This is the homepage of your **Team Wiki**!\n\n## Getting Started\n- Explore the categories to find topics of interest.\n- Use the search bar to quickly find specific content.\n- Contribute by adding new pages or editing existing ones.\n\n## Featured Articles\n- [Introduction to Functional Programming](#/pages/4/show)\n- [Understanding Single-Page Applications](#/pages/1/show)\n- [Emerging Technologies](#/pages/5/show)\n\n## How to Contribute\n1. Click on 'Add page' to create a new page.\n2. Use the editor to write your content in Markdown.\n3. Save your changes and share with the team!\n\nHappy collaborating!",
       "category_id": null
     },
     {
@@ -127,7 +127,7 @@
       "data": {
         "id": 0,
         "title": "Welcome",
-        "content": "This is the homepage of your **Team Wiki**!\n\n## Getting Started\n- Explore the categories to find topics of interest.\n- Use the search bar to quickly find specific content.\n- Contribute by adding new pages or editing existing ones.\n\n## Featured Articles\n- [Introduction to Functional Programming](#/pages/4/show)\n- [Understanding Single-Page Applications](#/pages/1/show)\n- [Emerging Technologies](#/pages/5/show)\n\n## How to Contribute\n1. Click on 'Create' to create a new page.\n2. Use the editor to write your content in Markdown.\n3. Save your changes and share with the team!\n\nHappy collaborating!",
+        "content": "This is the homepage of your **Team Wiki**!\n\n## Getting Started\n- Explore the categories to find topics of interest.\n- Use the search bar to quickly find specific content.\n- Contribute by adding new pages or editing existing ones.\n\n## Featured Articles\n- [Introduction to Functional Programming](#/pages/4/show)\n- [Understanding Single-Page Applications](#/pages/1/show)\n- [Emerging Technologies](#/pages/5/show)\n\n## How to Contribute\n1. Click on 'Add page' to create a new page.\n2. Use the editor to write your content in Markdown.\n3. Save your changes and share with the team!\n\nHappy collaborating!",
         "category_id": null
       },
       "authorId": 1,
@@ -321,8 +321,22 @@
       "id": 1,
       "page_id": 1,
       "author_id": 1,
-      "date": "2023-10-01T12:00:00Z",
+      "date": "2025-10-01T12:00:00Z",
       "message": "I'm adding a message in the page discussion."
+    },
+    {
+      "id": "2",
+      "page_id": 6,
+      "author_id": 2,
+      "date": "2025-05-02T12:00:00Z",
+      "message": "Should we also talk about alternative frameworks like Astro, Svelte, or Solid.js? They are gaining traction in the frontend community."
+    },
+    {
+      "id": "3",
+      "page_id": 6,
+      "author_id": 4,
+      "date": "2025-05-02T16:30:00Z",
+      "message": "You're right, we should consider adding those. They offer unique benefits and are worth mentioning in the context of modern frontend development. Would you like to draft a section on them?"
     }
   ]
 }
