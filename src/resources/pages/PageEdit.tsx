@@ -6,11 +6,16 @@ import {
 import { ReferenceNodeInput } from "@react-admin/ra-tree";
 
 import { PageMarkdownInput } from "../../inputs/PageMarkdownInput.tsx";
+import { UserName } from "../users/UserName.tsx";
 import { Diff } from "./Diff.tsx";
 
 export const EditToolbar = () => (
   <TopToolbar>
-    <RevisionsButton diff={<Diff />} allowRevert />
+    <RevisionsButton
+      diff={<Diff />}
+      allowRevert
+      renderName={(id) => <UserName id={id} />}
+    />
     <ShowButton />
   </TopToolbar>
 );

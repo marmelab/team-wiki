@@ -19,6 +19,7 @@ import { slug } from "github-slugger";
 import { CategoryTree } from "../categories/CategoryTree.tsx";
 import { Diff } from "./Diff.tsx";
 import { nodeToString } from "../../utils.ts";
+import { UserName } from "../users/UserName.tsx";
 
 export const PageShow = () => {
   const baseUrl = useBaseUrl();
@@ -86,7 +87,10 @@ const ShowToolbar = () => {
         />{" "}
         comments
       </Button>
-      <RevisionsButton diff={<Diff />} />
+      <RevisionsButton
+        diff={<Diff />}
+        renderName={(id) => <UserName id={id} />}
+      />
       <EditButton />
     </TopToolbar>
   );
