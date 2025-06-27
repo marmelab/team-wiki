@@ -8,6 +8,7 @@ import { ReferenceNodeInput } from "@react-admin/ra-tree";
 import { PageMarkdownInput } from "../../inputs/PageMarkdownInput.tsx";
 import { UserName } from "../users/UserName.tsx";
 import { Diff } from "./Diff.tsx";
+import { Stack } from "@mui/material";
 
 export const EditToolbar = () => (
   <TopToolbar>
@@ -23,9 +24,13 @@ export const EditToolbar = () => (
 export const PageEdit = () => (
   <Edit actions={<EditToolbar />} redirect="show" title="Edit Page">
     <SimpleFormWithRevision>
-      <TextInput source="title" validate={required()} />
-      <PageMarkdownInput source="content" />
-      <ReferenceNodeInput source="category_id" reference="categories" />
+      <Stack direction="row" spacing={2} alignItems="top">
+        <div>
+          <TextInput source="title" validate={required()} helperText={false} />
+          <PageMarkdownInput source="content" helperText={false} />
+        </div>
+        <ReferenceNodeInput source="category_id" reference="categories" />
+      </Stack>
     </SimpleFormWithRevision>
   </Edit>
 );
