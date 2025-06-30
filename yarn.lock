@@ -3195,11 +3195,11 @@ __metadata:
   linkType: hard
 
 "fakerest@npm:^4.0.1":
-  version: 4.1.2
-  resolution: "fakerest@npm:4.1.2"
+  version: 4.1.3
+  resolution: "fakerest@npm:4.1.3"
   dependencies:
     lodash: "npm:^4.17.21"
-  checksum: 10c0/a3265a76f61dd1f84ec54e0e7b198dbc8414187ce113541832668fabea571e68d0af6d81e5356dfa1dd1fb00bfd091000416eef01daadd80f7b3fa84f3a531cf
+  checksum: 10c0/535064d032a6bec88aa9b3e33d6f84e0622bee1f722a821abb8d6e6ca9e65102e11dd800c81be8c6a3fb97bb80875142e809b412e4a434c4fb9dd1911367b6dc
   languageName: node
   linkType: hard
 
