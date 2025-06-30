@@ -1,5 +1,7 @@
 import {
   EditButton,
+  Labeled,
+  ReferenceField,
   ReferenceManyCount,
   Show,
   TextField,
@@ -30,10 +32,7 @@ export const PageShow = () => {
           source="title"
           variant="h2"
           gutterBottom
-          sx={{
-            fontSize: "2.5em",
-            textAlign: "center",
-          }}
+          sx={{ fontSize: "2.5em" }}
         />
 
         <Box>
@@ -109,16 +108,18 @@ const Sidebar = () => {
         width: "20em",
         position: "sticky",
         top: "4em",
-        pl: 0,
+        pl: "1em",
         mt: 0,
         ["ul"]: {
           margin: 0,
           padding: 0,
         },
         ["li"]: {
+          listStyle: "none",
+        },
+        ["li li"]: {
           margin: "0.5em 0",
           padding: "0 1em",
-          listStyle: "none",
         },
       }}
     >
@@ -132,6 +133,11 @@ const Sidebar = () => {
           </MUILink>
         )}
       />
+      <Labeled sx={{ mt: 2 }} label="Category">
+        <ReferenceField source="category_id" reference="categories">
+          <TextField variant="body1" source="name" />
+        </ReferenceField>
+      </Labeled>
     </Stack>
   );
 };

@@ -1,9 +1,13 @@
 import { ListTreeIcon } from "lucide-react";
-import { List } from "./List.tsx";
-import { Show } from "./Show.tsx";
+import { CategoryList } from "./CategoryList.tsx";
+import { CategoryShow } from "./CategoryShow.tsx";
+import { CategoryEdit } from "./CategoryEdit.tsx";
+import { CategoryCreate } from "./CategoryCreate.tsx";
 
 export const categories = {
   icon: ListTreeIcon,
-  list: List,
-  show: Show,
+  list: CategoryList,
+  show: CategoryShow,
+  create: CategoryCreate,
+  edit: CategoryEdit,
 };

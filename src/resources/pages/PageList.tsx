@@ -1,11 +1,13 @@
 import {
   CreateButton,
-  Link,
   List,
+  RecordContextProvider,
   TopToolbar,
   useListContext,
 } from "react-admin";
 import { Box, Typography } from "@mui/material";
+
+import { PageItem } from "./PageItem";
 import type { Page } from "../../types";
 
 export const PageList = () => (
@@ -56,11 +58,9 @@ const Articles = () => {
                 sx={{ padding: 0, listStylePosition: "inside" }}
               >
                 {articles.map((article) => (
-                  <li key={article.id}>
-                    <Link to={`/pages/${article.id}/show`}>
-                      {article.title}
-                    </Link>
-                  </li>
+                  <RecordContextProvider key={article.id} value={article}>
+                    <PageItem />
+                  </RecordContextProvider>
                 ))}
               </Box>
             </div>
