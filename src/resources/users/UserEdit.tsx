@@ -1,16 +1,11 @@
-import {
-  Create as RACreate,
-  PasswordInput,
-  SimpleForm,
-  TextInput,
-} from "react-admin";
+import { Edit, PasswordInput, SimpleForm, TextInput } from "react-admin";
 
-export const Create = () => (
-  <RACreate>
+export const UserEdit = () => (
+  <Edit>
     <SimpleForm>
       <TextInput source="username" />
       <TextInput source="fullName" />
       <PasswordInput source="password" />
     </SimpleForm>
-  </RACreate>
+  </Edit>
 );

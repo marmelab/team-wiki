@@ -1,7 +1,7 @@
-import { DataTable, List as RAList } from "react-admin";
+import { DataTable, List } from "react-admin";
 
-export const List = () => (
-  <RAList
+export const UserList = () => (
+  <List
     sort={{
       field: "id",
       order: "DESC",
@@ -12,5 +12,5 @@ export const List = () => (
       <DataTable.Col source="username" />
       <DataTable.Col source="fullName" />
     </DataTable>
-  </RAList>
+  </List>
 );

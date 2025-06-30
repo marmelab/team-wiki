@@ -1,12 +1,10 @@
-import { List } from "./List.tsx";
-import { Create } from "./Create.tsx";
-import { Edit } from "./Edit.tsx";
-import { Show } from "./Show.tsx";
+import { UserList } from "./UserList.tsx";
+import { UserCreate } from "./UserCreate.tsx";
+import { UserEdit } from "./UserEdit.tsx";
 
 export const users = {
-  list: List,
-  create: Create,
-  edit: Edit,
-  show: Show,
+  list: UserList,
+  create: UserCreate,
+  edit: UserEdit,
   recordRepresentation: "fullName",
 };
