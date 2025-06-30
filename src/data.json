@@ -64,15 +64,141 @@
     },
     {
       "id": 4,
-      "name": "Web",
+      "name": "Web Development",
       "description": "Web development tools, frameworks, and languages.",
       "parent_id": 2
     },
     {
       "id": 5,
-      "name": "Mobile",
+      "name": "Mobile Development",
       "description": "Mobile application development platforms and tools.",
       "parent_id": 2
+    },
+    {
+      "id": 6,
+      "name": "Human Resources",
+      "description": "Policies, procedures, and information related to HR.",
+      "parent_id": null
+    },
+    {
+      "id": 7,
+      "name": "Benefits",
+      "description": "Information on employee benefits, including health, dental, and retirement.",
+      "parent_id": 6
+    },
+    {
+      "id": 8,
+      "name": "Onboarding",
+      "description": "Resources for new employee onboarding and integration.",
+      "parent_id": 6
+    },
+    {
+      "id": 9,
+      "name": "Finance",
+      "description": "Financial policies, reporting, and budgeting.",
+      "parent_id": null
+    },
+    {
+      "id": 10,
+      "name": "Expenses",
+      "description": "Guidelines and procedures for expense reporting and reimbursement.",
+      "parent_id": 9
+    },
+    {
+      "id": 11,
+      "name": "Payroll",
+      "description": "Information regarding payroll schedules, deductions, and tax forms.",
+      "parent_id": 9
+    },
+    {
+      "id": 12,
+      "name": "Marketing",
+      "description": "Marketing strategies, campaigns, and branding guidelines.",
+      "parent_id": null
+    },
+    {
+      "id": 13,
+      "name": "Digital Marketing",
+      "description": "SEO, SEM, social media, and email marketing.",
+      "parent_id": 12
+    },
+    {
+      "id": 14,
+      "name": "Brand Guidelines",
+      "description": "Company brand standards, logos, and visual identity.",
+      "parent_id": 12
+    },
+    {
+      "id": 15,
+      "name": "Sales",
+      "description": "Sales processes, tools, and best practices.",
+      "parent_id": null
+    },
+    {
+      "id": 16,
+      "name": "CRM",
+      "description": "Customer Relationship Management system usage and tips.",
+      "parent_id": 15
+    },
+    {
+      "id": 17,
+      "name": "Sales Enablement",
+      "description": "Resources and training to support the sales team.",
+      "parent_id": 15
+    },
+    {
+      "id": 18,
+      "name": "Operations",
+      "description": "Operational procedures, logistics, and facilities management.",
+      "parent_id": null
+    },
+    {
+      "id": 19,
+      "name": "Facilities",
+      "description": "Office management, maintenance, and space allocation.",
+      "parent_id": 18
+    },
+    {
+      "id": 20,
+      "name": "Logistics",
+      "description": "Shipping, inventory, and supply chain management.",
+      "parent_id": 18
+    },
+    {
+      "id": 21,
+      "name": "Legal",
+      "description": "Legal policies, compliance, and intellectual property.",
+      "parent_id": null
+    },
+    {
+      "id": 22,
+      "name": "Compliance",
+      "description": "Regulatory compliance and internal policy adherence.",
+      "parent_id": 21
+    },
+    {
+      "id": 23,
+      "name": "Contracts",
+      "description": "Contract templates, review processes, and legal agreements.",
+      "parent_id": 21
+    },
+    {
+      "id": 24,
+      "name": "Customer Support",
+      "description": "Customer service procedures, FAQs, and support tools.",
+      "parent_id": null
+    },
+    {
+      "id": 25,
+      "name": "Troubleshooting",
+      "description": "Common customer issues and their resolutions.",
+      "parent_id": 24
+    },
+    {
+      "id": 26,
+      "name": "Product Information",
+      "description": "Details about company products and services.",
+      "parent_id": 24
     }
   ],
   "pages": [
