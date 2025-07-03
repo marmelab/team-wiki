@@ -1266,8 +1266,8 @@ __metadata:
   linkType: hard
 
 "@react-admin/ra-tree@npm:^6.2.1":
-  version: 6.3.1
-  resolution: "@react-admin/ra-tree@npm:6.3.1::__archiveUrl=https%3A%2F%2Fregistry.marmelab.com%2Fdownload%2F%40react-admin%2Fra-tree%2F6.3.1%2Fe2ce1d47669d89acfddfef7d1a421b956226e7ca"
+  version: 6.3.2
+  resolution: "@react-admin/ra-tree@npm:6.3.2::__archiveUrl=https%3A%2F%2Fregistry.marmelab.com%2Fdownload%2F%40react-admin%2Fra-tree%2F6.3.2%2Ff1dc6ad6a53535404cc4a7e5163b2546d5b87894"
   dependencies:
     rc-tree: "npm:^5.10.1"
   peerDependencies:
@@ -1283,7 +1283,7 @@ __metadata:
     react-hook-form: ^7.53.0
     react-router: ^6.28.1 || ^7.1.1
     react-router-dom: ^6.28.1 || ^7.1.1
-  checksum: 10c0/188d0ba06a9af3fe2a1be4d39ae004eb846893fe1baa614105e21c3fca18530bd3b9ed023fcf2b961da04940f586723635e100936ed407655e2a57af1456e49e
+  checksum: 10c0/5dde19d84e406b177fc77d0552fffcdac3f9c1dd144673c23450ad4071a2bd57c2e009073facb0aac8bab8b9ff1fc03a4e432fade062e797a662ee48aa1f5838
   languageName: node
   linkType: hard
 
