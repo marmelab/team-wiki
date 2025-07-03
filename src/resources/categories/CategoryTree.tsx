@@ -7,11 +7,14 @@ import type { Category } from "../../types";
 export const CategoryTree = () => {
   const record = useRecordContext();
   const dataProvider = useDataProvider();
-  const { data: ancestors } = useQuery<{ data: Category[] }>({
+  const { data: ancestors, isPending } = useQuery<{ data: Category[] }>({
     queryKey: ["categories", "getAncestorNodes", record?.category_id],
     queryFn: () =>
       dataProvider.getRootPath("categories", { childId: record?.category_id }),
   });
+  if (isPending) {
+    return null;
+  }
   return (
     <Breadcrumbs sx={{ flexGrow: 1 }}>
       <Link to={`/`}>Home</Link>
