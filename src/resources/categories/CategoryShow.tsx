@@ -17,11 +17,13 @@ import {
 } from "react-admin";
 import { Typography } from "@mui/material";
 
+import { CategoryTreeForCategory } from "./CategoryTreeForCategory";
 import { CategoryItem } from "./CategoryItem";
 import { PageItem } from "../pages/PageItem";
 
 const CategoriesShowToolbar = () => (
-  <TopToolbar sx={{ alignItems: "center" }}>
+  <TopToolbar>
+    <CategoryTreeForCategory />
     <EditButton />
   </TopToolbar>
 );

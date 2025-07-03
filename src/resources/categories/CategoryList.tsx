@@ -1,6 +1,11 @@
-import { TopToolbar, CreateButton, RecordContextProvider } from "react-admin";
+import {
+  Link,
+  TopToolbar,
+  CreateButton,
+  RecordContextProvider,
+} from "react-admin";
 import { useGetRootNodes } from "@react-admin/ra-tree";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Breadcrumbs, Card, CardContent, Typography } from "@mui/material";
 import { CategoryItem } from "./CategoryItem";
 
 export const CategoryList = () => {
@@ -11,6 +16,10 @@ export const CategoryList = () => {
   return (
     <>
       <TopToolbar>
+        <Breadcrumbs sx={{ flexGrow: 1 }}>
+          <Link to={`/`}>Home</Link>
+          <Typography color="textSecondary">All categories</Typography>
+        </Breadcrumbs>
         <CreateButton resource="categories" label="Add category" />
       </TopToolbar>
       <Card>
